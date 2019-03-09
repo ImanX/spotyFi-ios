@@ -65,16 +65,24 @@
 		7E58ED4F22342624005BE379 /* SpotyFi */ = {
 			isa = PBXGroup;
 			children = (
+				7E58ED6A223432F6005BE379 /* ViewController */,
 				7E58ED5022342624005BE379 /* AppDelegate.swift */,
-				7E58ED5222342624005BE379 /* ViewController.swift */,
 				7E58ED5422342624005BE379 /* Main.storyboard */,
 				7E58ED5A22342625005BE379 /* Assets.xcassets */,
 				7E58ED5C22342625005BE379 /* LaunchScreen.storyboard */,
 				7E58ED5F22342625005BE379 /* Info.plist */,
 				7E58ED5722342624005BE379 /* SpotyFi.xcdatamodeld */,
-				7E58ED6822343069005BE379 /* UIBaseViewController.swift */,
 			);
 			path = SpotyFi;
+			sourceTree = "<group>";
+		};
+		7E58ED6A223432F6005BE379 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E58ED6822343069005BE379 /* UIBaseViewController.swift */,
+				7E58ED5222342624005BE379 /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		C964CE1B7D5D0284052CD584 /* Frameworks */ = {
@@ -375,7 +383,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V36A5N26AB;
 				INFOPLIST_FILE = SpotyFi/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.imanx.github.spofyFi.SpotyFi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -391,7 +402,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V36A5N26AB;
 				INFOPLIST_FILE = SpotyFi/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.imanx.github.spofyFi.SpotyFi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
