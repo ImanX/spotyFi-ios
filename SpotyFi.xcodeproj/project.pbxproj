@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E53A9FB3F7437601E2D2072 /* Pods_SpotyFi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */; };
 		7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED5022342624005BE379 /* AppDelegate.swift */; };
 		7E58ED5322342624005BE379 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED5222342624005BE379 /* ViewController.swift */; };
 		7E58ED5622342624005BE379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E58ED5422342624005BE379 /* Main.storyboard */; };
 		7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED5722342624005BE379 /* SpotyFi.xcdatamodeld */; };
 		7E58ED5B22342625005BE379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E58ED5A22342625005BE379 /* Assets.xcassets */; };
 		7E58ED5E22342625005BE379 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E58ED5C22342625005BE379 /* LaunchScreen.storyboard */; };
+		7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6822343069005BE379 /* UIBaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		7E58ED5A22342625005BE379 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E58ED5D22342625005BE379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E58ED5F22342625005BE379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E58ED6822343069005BE379 /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
+		9709F21D96340FB09DFDB780 /* Pods-SpotyFi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotyFi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi.debug.xcconfig"; sourceTree = "<group>"; };
+		BCABD8A0131963E93E668110 /* Pods-SpotyFi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotyFi.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi.release.xcconfig"; sourceTree = "<group>"; };
+		DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotyFi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E53A9FB3F7437601E2D2072 /* Pods_SpotyFi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				7E58ED4F22342624005BE379 /* SpotyFi */,
 				7E58ED4E22342624005BE379 /* Products */,
+				E32177CFE6E4CF035DA66C64 /* Pods */,
+				C964CE1B7D5D0284052CD584 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +72,26 @@
 				7E58ED5C22342625005BE379 /* LaunchScreen.storyboard */,
 				7E58ED5F22342625005BE379 /* Info.plist */,
 				7E58ED5722342624005BE379 /* SpotyFi.xcdatamodeld */,
+				7E58ED6822343069005BE379 /* UIBaseViewController.swift */,
 			);
 			path = SpotyFi;
+			sourceTree = "<group>";
+		};
+		C964CE1B7D5D0284052CD584 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E32177CFE6E4CF035DA66C64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9709F21D96340FB09DFDB780 /* Pods-SpotyFi.debug.xcconfig */,
+				BCABD8A0131963E93E668110 /* Pods-SpotyFi.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E58ED6222342625005BE379 /* Build configuration list for PBXNativeTarget "SpotyFi" */;
 			buildPhases = (
+				F8BD97C25DDC07C16EF4E56E /* [CP] Check Pods Manifest.lock */,
 				7E58ED4922342624005BE379 /* Sources */,
 				7E58ED4A22342624005BE379 /* Frameworks */,
 				7E58ED4B22342624005BE379 /* Resources */,
+				399CE6C9FBA07CC3A642984A /* [CP] Embed Pods Frameworks */,
+				2AD957DC5AB91DDFBAF24C28 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,12 +163,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2AD957DC5AB91DDFBAF24C28 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		399CE6C9FBA07CC3A642984A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSocket.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8BD97C25DDC07C16EF4E56E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpotyFi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7E58ED4922342624005BE379 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7E58ED5322342624005BE379 /* ViewController.swift in Sources */,
+				7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */,
 				7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */,
 				7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */,
 			);
@@ -284,15 +369,13 @@
 		};
 		7E58ED6322342625005BE379 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9709F21D96340FB09DFDB780 /* Pods-SpotyFi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V36A5N26AB;
 				INFOPLIST_FILE = SpotyFi/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imanx.github.spofyFi.SpotyFi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -302,15 +385,13 @@
 		};
 		7E58ED6422342625005BE379 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCABD8A0131963E93E668110 /* Pods-SpotyFi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V36A5N26AB;
 				INFOPLIST_FILE = SpotyFi/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.imanx.github.spofyFi.SpotyFi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
