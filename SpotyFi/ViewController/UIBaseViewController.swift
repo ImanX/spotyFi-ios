@@ -8,9 +8,38 @@
 
 import Foundation
 import UIKit
-class UIBaseViewController: UIViewController {
+class UIBaseViewController: UIViewController ,SocketerDelegate{
+    
+    public static var socket:Socketer!;
+    
+    func didWiat() {
+        
+    }
+    
+    
+    func didConnect() {
+        
+    }
+    
+    func didDisconnect() {
+        
+    }
+    
+    func didReceiveMessage(data: String) {
+        
+    }
+    
+    func didException(error: Error?) {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UIBaseViewController.socket == nil{
+            UIBaseViewController.socket = Socketer(delegate: self);
+            UIBaseViewController.socket.connect();
+        }
     }
     
     

@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Starscream
+class ViewController: UIBaseViewController{
 
-class ViewController: UIBaseViewController {
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
     }
 
-
+    override func didReceiveMessage(data: String) {
+        xprint(any: data);
+    }
 }
 

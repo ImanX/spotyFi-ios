@@ -15,6 +15,9 @@
 		7E58ED5B22342625005BE379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E58ED5A22342625005BE379 /* Assets.xcassets */; };
 		7E58ED5E22342625005BE379 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E58ED5C22342625005BE379 /* LaunchScreen.storyboard */; };
 		7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6822343069005BE379 /* UIBaseViewController.swift */; };
+		7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6B223434EF005BE379 /* RESOURCE.swift */; };
+		7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6D223435B5005BE379 /* Socketer.swift */; };
+		7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED712234EF42005BE379 /* SocketerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		7E58ED5D22342625005BE379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E58ED5F22342625005BE379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E58ED6822343069005BE379 /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
+		7E58ED6B223434EF005BE379 /* RESOURCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESOURCE.swift; sourceTree = "<group>"; };
+		7E58ED6D223435B5005BE379 /* Socketer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socketer.swift; sourceTree = "<group>"; };
+		7E58ED712234EF42005BE379 /* SocketerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketerDelegate.swift; sourceTree = "<group>"; };
 		9709F21D96340FB09DFDB780 /* Pods-SpotyFi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotyFi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi.debug.xcconfig"; sourceTree = "<group>"; };
 		BCABD8A0131963E93E668110 /* Pods-SpotyFi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotyFi.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi.release.xcconfig"; sourceTree = "<group>"; };
 		DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotyFi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +71,7 @@
 		7E58ED4F22342624005BE379 /* SpotyFi */ = {
 			isa = PBXGroup;
 			children = (
+				7E58ED7022343F0B005BE379 /* Socket */,
 				7E58ED6A223432F6005BE379 /* ViewController */,
 				7E58ED5022342624005BE379 /* AppDelegate.swift */,
 				7E58ED5422342624005BE379 /* Main.storyboard */,
@@ -72,6 +79,7 @@
 				7E58ED5C22342625005BE379 /* LaunchScreen.storyboard */,
 				7E58ED5F22342625005BE379 /* Info.plist */,
 				7E58ED5722342624005BE379 /* SpotyFi.xcdatamodeld */,
+				7E58ED6B223434EF005BE379 /* RESOURCE.swift */,
 			);
 			path = SpotyFi;
 			sourceTree = "<group>";
@@ -83,6 +91,15 @@
 				7E58ED5222342624005BE379 /* ViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7E58ED7022343F0B005BE379 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				7E58ED6D223435B5005BE379 /* Socketer.swift */,
+				7E58ED712234EF42005BE379 /* SocketerDelegate.swift */,
+			);
+			path = Socket;
 			sourceTree = "<group>";
 		};
 		C964CE1B7D5D0284052CD584 /* Frameworks */ = {
@@ -194,11 +211,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -231,6 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E58ED5322342624005BE379 /* ViewController.swift in Sources */,
+				7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */,
+				7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */,
+				7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */,
 				7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */,
 				7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */,
 				7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */,
@@ -383,6 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V36A5N26AB;
 				INFOPLIST_FILE = SpotyFi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,6 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V36A5N26AB;
 				INFOPLIST_FILE = SpotyFi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
