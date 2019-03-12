@@ -14,7 +14,4 @@ protocol SocketerDelegate {
     func didDisconnect();
     func didReceiveMessage(data:String);
     func didException(error:Error?);
-
-    
-    
 }
