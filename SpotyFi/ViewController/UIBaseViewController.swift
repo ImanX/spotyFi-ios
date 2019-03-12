@@ -8,17 +8,31 @@
 
 import Foundation
 import UIKit
+import NotificationBannerSwift
+
 class UIBaseViewController: UIViewController ,SocketerDelegate{
+    
+    private var banner = Banner();
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent;
+    }
     
     public static var socket:Socketer!;
     
+    
     func didWiat() {
-        
+        DispatchQueue.main.async {
+            self.banner.show(title: "Connecting...");
+        }
+
     }
     
-    
     func didConnect() {
-        
+        DispatchQueue.main.async {
+            self.banner.reloadLabel(title: "Connected");
+            self.banner.dismiss(delay: 2);
+        }
     }
     
     func didDisconnect() {
@@ -30,7 +44,7 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
     }
     
     func didException(error: Error?) {
-        
+       
     }
     
     

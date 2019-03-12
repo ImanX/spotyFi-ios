@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E53A9FB3F7437601E2D2072 /* Pods_SpotyFi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */; };
+		7E5495CD223580DB00634042 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5495CC223580DB00634042 /* Banner.swift */; };
 		7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED5022342624005BE379 /* AppDelegate.swift */; };
 		7E58ED5322342624005BE379 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED5222342624005BE379 /* ViewController.swift */; };
 		7E58ED5622342624005BE379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E58ED5422342624005BE379 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E5495CC223580DB00634042 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		7E58ED4D22342624005BE379 /* SpotyFi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotyFi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E58ED5022342624005BE379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E58ED5222342624005BE379 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				7E58ED5F22342625005BE379 /* Info.plist */,
 				7E58ED5722342624005BE379 /* SpotyFi.xcdatamodeld */,
 				7E58ED6B223434EF005BE379 /* RESOURCE.swift */,
+				7E5495CC223580DB00634042 /* Banner.swift */,
 			);
 			path = SpotyFi;
 			sourceTree = "<group>";
@@ -211,10 +214,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +261,7 @@
 				7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */,
 				7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */,
 				7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */,
+				7E5495CD223580DB00634042 /* Banner.swift in Sources */,
 				7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */,
 				7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */,
 			);

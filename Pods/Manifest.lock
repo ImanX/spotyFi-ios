@@ -1,12 +1,21 @@
 PODS:
+  - MarqueeLabel/Swift (3.2.0)
+  - NotificationBannerSwift (2.0.1):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.2.0)
+  - SnapKit (4.2.0)
   - Starscream (3.0.6)
 
 DEPENDENCIES:
+  - NotificationBannerSwift
   - Starscream (~> 3.0.2)
 
 SPEC CHECKSUMS:
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
+  NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: e2d80e45bb2f9f5afe230ba150a93dcd9ad2e6ae
+PODFILE CHECKSUM: 2f3da59474bd136d5bcce6d06dca612dd5837a3d
 
 COCOAPODS: 1.4.0
