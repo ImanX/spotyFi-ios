@@ -46,6 +46,12 @@ class Socketer: WebSocket , WebSocketDelegate {
     }
     
     
+    
+    func send(string:String){
+        super.write(string: string);
+        xprint(cls: Socketer.self, any: "Send Data to \(string)")
+    }
+    
     override func connect() {
         super.connect()
         xprint(cls: Socketer.self, any: "connect")
@@ -54,7 +60,7 @@ class Socketer: WebSocket , WebSocketDelegate {
     func disconnect() {
         super.disconnect();
         xprint(cls: Socketer.self, any: "disconnect")
-
+        
     }
     
     

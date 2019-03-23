@@ -8,17 +8,103 @@
 
 import UIKit
 import Starscream
+import FRadioPlayer
+import SwiftyJSON;
 class ViewController: UIBaseViewController{
 
     
     
+//    private func setupNowPlayingInfoCenter() {
+//        UIApplication.shared.beginReceivingRemoteControlEvents();
+//        MPRemoteCommandCenter.shared().playCommand.addTarget {event in
+//          //  self.updateNowPlayingInfoCenter()
+//            return .success
+//        }
+//        MPRemoteCommandCenter.shared().pauseCommand.addTarget {event in
+//            return .success;
+//        }
+//        MPRemoteCommandCenter.shared().nextTrackCommand.addTarget {event in
+//            return .success;
+//
+//        }
+//        MPRemoteCommandCenter.shared().previousTrackCommand.addTarget {event in
+//            return .success;
+//
+//        }
+//    }
+    
+    @IBOutlet weak var edtURL: UITextField!
+    
+    
+    
+    
+    
+//    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if textField.returnKeyType == .search , (textField.text?.isSpotifyURL())!{
+//            self.view.appearLoading();
+//            let request = RequestMusic(url: textField.text!);
+//            UIBaseViewController.socket.send(string: request.toJSON().description);
+//        }
+//        return true
+//    }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard textField.returnKeyType == .search , (textField.text?.isSpotifyURL())! else{
+            return super.textFieldShouldReturn(textField);
+        }
+        
+        guard let url = URL(string: textField.text!) else {
+            return super.textFieldShouldReturn(textField);
+        }
+        
+        
+    
+        self.appearLoading();
+        let request = RequestMusic(url: url.description);
+        UIBaseViewController.socket.send(string: request.toJSON().description);
+        
+        return super.textFieldShouldReturn(textField);
 
+    }
+    
+
+    
+
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad();
+    
+        self.edtURL.delegate = self;
+    }
+   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+        
+    
+    }
+    
+    override func didConnect() {
+        super.didConnect();
+       
+//        let request = RequestMusic(url: "https://open.spotify.com/track/33IOhptvC2Qoy2UhjiHXLV?si=MciPM_uAS9u8x5gIrvSh1Q");
+//        UIBaseViewController.socket.send(string: request.toJSON().description);
     }
 
-    override func didReceiveMessage(data: String) {
-        xprint(any: data);
+    
+
+    override func didReceiveMessage(data: String) {        
+        let music = Music(data: data);
+        self.disappearLoading();
+        UIPlayerViewController.start(music: music);
     }
+    
+
 }
 

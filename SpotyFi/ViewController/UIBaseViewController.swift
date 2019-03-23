@@ -47,10 +47,15 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.view.backgroundColor = .black;
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UIBaseViewController.socket == nil{
+        if (UIBaseViewController.socket == nil) || (!UIBaseViewController.socket.isConnected)  {
             UIBaseViewController.socket = Socketer(delegate: self);
             UIBaseViewController.socket.connect();
         }

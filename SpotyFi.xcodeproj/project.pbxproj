@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E53A9FB3F7437601E2D2072 /* Pods_SpotyFi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */; };
 		7E5495CD223580DB00634042 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5495CC223580DB00634042 /* Banner.swift */; };
+		7E5495CF223836A400634042 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5495CE223836A400634042 /* MediaPlayer.framework */; };
 		7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED5022342624005BE379 /* AppDelegate.swift */; };
 		7E58ED5322342624005BE379 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED5222342624005BE379 /* ViewController.swift */; };
 		7E58ED5622342624005BE379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E58ED5422342624005BE379 /* Main.storyboard */; };
@@ -19,10 +20,16 @@
 		7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6B223434EF005BE379 /* RESOURCE.swift */; };
 		7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6D223435B5005BE379 /* Socketer.swift */; };
 		7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED712234EF42005BE379 /* SocketerDelegate.swift */; };
+		7E880436224576F700EA5630 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E880435224576F700EA5630 /* Player.swift */; };
+		7E88043822464FED00EA5630 /* UIPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043722464FED00EA5630 /* UIPlayerViewController.swift */; };
+		7E88043B2246632300EA5630 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043A2246632300EA5630 /* Model.swift */; };
+		7E88043D224665A200EA5630 /* RequestMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043C224665A200EA5630 /* RequestMusic.swift */; };
+		7E88043F224667E900EA5630 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043E224667E900EA5630 /* Music.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7E5495CC223580DB00634042 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		7E5495CE223836A400634042 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7E58ED4D22342624005BE379 /* SpotyFi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotyFi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E58ED5022342624005BE379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E58ED5222342624005BE379 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +42,11 @@
 		7E58ED6B223434EF005BE379 /* RESOURCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESOURCE.swift; sourceTree = "<group>"; };
 		7E58ED6D223435B5005BE379 /* Socketer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socketer.swift; sourceTree = "<group>"; };
 		7E58ED712234EF42005BE379 /* SocketerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketerDelegate.swift; sourceTree = "<group>"; };
+		7E880435224576F700EA5630 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7E88043722464FED00EA5630 /* UIPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerViewController.swift; sourceTree = "<group>"; };
+		7E88043A2246632300EA5630 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7E88043C224665A200EA5630 /* RequestMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMusic.swift; sourceTree = "<group>"; };
+		7E88043E224667E900EA5630 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		9709F21D96340FB09DFDB780 /* Pods-SpotyFi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotyFi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi.debug.xcconfig"; sourceTree = "<group>"; };
 		BCABD8A0131963E93E668110 /* Pods-SpotyFi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotyFi.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi.release.xcconfig"; sourceTree = "<group>"; };
 		DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotyFi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E5495CF223836A400634042 /* MediaPlayer.framework in Frameworks */,
 				0E53A9FB3F7437601E2D2072 /* Pods_SpotyFi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +86,7 @@
 		7E58ED4F22342624005BE379 /* SpotyFi */ = {
 			isa = PBXGroup;
 			children = (
+				7E8804392246630B00EA5630 /* Models */,
 				7E58ED7022343F0B005BE379 /* Socket */,
 				7E58ED6A223432F6005BE379 /* ViewController */,
 				7E58ED5022342624005BE379 /* AppDelegate.swift */,
@@ -83,6 +97,7 @@
 				7E58ED5722342624005BE379 /* SpotyFi.xcdatamodeld */,
 				7E58ED6B223434EF005BE379 /* RESOURCE.swift */,
 				7E5495CC223580DB00634042 /* Banner.swift */,
+				7E880435224576F700EA5630 /* Player.swift */,
 			);
 			path = SpotyFi;
 			sourceTree = "<group>";
@@ -92,6 +107,7 @@
 			children = (
 				7E58ED6822343069005BE379 /* UIBaseViewController.swift */,
 				7E58ED5222342624005BE379 /* ViewController.swift */,
+				7E88043722464FED00EA5630 /* UIPlayerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -105,9 +121,20 @@
 			path = Socket;
 			sourceTree = "<group>";
 		};
+		7E8804392246630B00EA5630 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E88043A2246632300EA5630 /* Model.swift */,
+				7E88043C224665A200EA5630 /* RequestMusic.swift */,
+				7E88043E224667E900EA5630 /* Music.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C964CE1B7D5D0284052CD584 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E5495CE223836A400634042 /* MediaPlayer.framework */,
 				DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */,
 			);
 			name = Frameworks;
@@ -157,6 +184,11 @@
 				TargetAttributes = {
 					7E58ED4C22342624005BE379 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -214,17 +246,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRadioPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -257,12 +293,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E58ED5322342624005BE379 /* ViewController.swift in Sources */,
+				7E88043F224667E900EA5630 /* Music.swift in Sources */,
 				7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */,
 				7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */,
+				7E88043D224665A200EA5630 /* RequestMusic.swift in Sources */,
 				7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */,
 				7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */,
 				7E5495CD223580DB00634042 /* Banner.swift in Sources */,
 				7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */,
+				7E88043822464FED00EA5630 /* UIPlayerViewController.swift in Sources */,
+				7E88043B2246632300EA5630 /* Model.swift in Sources */,
+				7E880436224576F700EA5630 /* Player.swift in Sources */,
 				7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
