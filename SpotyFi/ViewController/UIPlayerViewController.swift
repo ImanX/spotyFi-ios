@@ -11,38 +11,43 @@ import FRadioPlayer
 class UIPlayerViewController: UIBaseViewController , FRadioPlayerDelegate{
    
 
-    private let player = FRadioPlayer.shared;
     private var music:Music?;
     
     public class func start(music:Music){
         let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(type: UIPlayerViewController.self);
         vc.music = music;
-        UIApplication.topViewController?.present(vc, animated: true, completion: nil);
+        if let navigationViewController = UIApplication.topViewController as? UINavigationController{
+            navigationViewController.pushViewController(vc, animated: true);
+        }
        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
+    }
+       
+    
+    override func viewDidLoad() {
+        super.viewDidLoad();
         player.delegate = self;
-      
+        
+        
+        if let title = music?.metadata?.name{
+            self.navigationItem.title = title;
+        }
+        
         guard let url = URL(string: (music?.downloadURL)!) else {
             return;
         }
         
         player.radioURL = url;
         player.play();
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
-        
         
     }
     
     func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
-        
+        print(state.description);
     }
     
     func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {

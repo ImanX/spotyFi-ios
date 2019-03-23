@@ -82,10 +82,14 @@ class ViewController: UIBaseViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if player.isPlaying {
+            navigationItem.title = "Playing..."
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
+       
         
     
     }
