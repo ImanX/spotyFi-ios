@@ -24,6 +24,7 @@
 		7E6F2CE62246F55A00E58E72 /* UIPlayerKit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F2CE52246F55A00E58E72 /* UIPlayerKit.xib */; };
 		7E6F2CEC224794DD00E58E72 /* UIPlayerControlKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2CEB224794DD00E58E72 /* UIPlayerControlKit.swift */; };
 		7E6F2CEE224794F000E58E72 /* UIPlayerControlKit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F2CED224794F000E58E72 /* UIPlayerControlKit.xib */; };
+		7E6F2CF12247C3CA00E58E72 /* PlayerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2CF02247C3CA00E58E72 /* PlayerProvider.swift */; };
 		7E88043822464FED00EA5630 /* UIPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043722464FED00EA5630 /* UIPlayerViewController.swift */; };
 		7E88043B2246632300EA5630 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043A2246632300EA5630 /* Model.swift */; };
 		7E88043D224665A200EA5630 /* RequestMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043C224665A200EA5630 /* RequestMusic.swift */; };
@@ -49,6 +50,7 @@
 		7E6F2CE52246F55A00E58E72 /* UIPlayerKit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIPlayerKit.xib; sourceTree = "<group>"; };
 		7E6F2CEB224794DD00E58E72 /* UIPlayerControlKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerControlKit.swift; sourceTree = "<group>"; };
 		7E6F2CED224794F000E58E72 /* UIPlayerControlKit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIPlayerControlKit.xib; sourceTree = "<group>"; };
+		7E6F2CF02247C3CA00E58E72 /* PlayerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProvider.swift; sourceTree = "<group>"; };
 		7E88043722464FED00EA5630 /* UIPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerViewController.swift; sourceTree = "<group>"; };
 		7E88043A2246632300EA5630 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7E88043C224665A200EA5630 /* RequestMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMusic.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				7E58ED5722342624005BE379 /* SpotyFi.xcdatamodeld */,
 				7E58ED6B223434EF005BE379 /* RESOURCE.swift */,
 				7E5495CC223580DB00634042 /* Banner.swift */,
+				7E6F2CF02247C3CA00E58E72 /* PlayerProvider.swift */,
 			);
 			path = SpotyFi;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			files = (
 				7E58ED5322342624005BE379 /* ViewController.swift in Sources */,
 				7E88043F224667E900EA5630 /* Music.swift in Sources */,
+				7E6F2CF12247C3CA00E58E72 /* PlayerProvider.swift in Sources */,
 				7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */,
 				7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */,
 				7E88043D224665A200EA5630 /* RequestMusic.swift in Sources */,

@@ -9,15 +9,55 @@
 import UIKit
 import FRadioPlayer
 import AVFoundation
-class UIPlayerViewController: UIBaseViewController{
-   
+class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
+    
+    
+    func didStart() {
 
+    }
+    
+    func didPlay() {
+        
+    }
+    
+    func didPause() {
+        
+    }
+    
+    func didLoading() {
+        appearLoading();
+    }
+    
+    func didReadyToPlay() {
+        disappearLoading();
+        let duration = PLAYER.avPlayer.currentItem?.asset.duration
+        let seconds = CMTimeGetSeconds(duration!);
+        self.slider.maximumValue = Float(seconds);
+        self.playerController.changeState(state: .Pause);
+
+        let fullSecond = Int(seconds);
+        self.lblFullTime.text = NSString(format: "%2d:%02d", fullSecond/60, fullSecond%60) as String;
+
+
+
+    }
+    
+    func didFailureToPlay() {
+        disappearLoading();
+        
+    }
+    
+    
+    
     private var music:Music?;
     @IBOutlet weak var playerKit: UIPlayerKit!
     @IBOutlet weak var bgCover: UIImageView!
     @IBOutlet weak var playerController: UIPlayerControlKit!
-
-
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var lblFullTime: UILabel!
+    @IBOutlet weak var lblCurrentTime: UILabel!
+    
+    
     
     
     @discardableResult
@@ -29,86 +69,82 @@ class UIPlayerViewController: UIBaseViewController{
         }
         
         return vc;
-       
+        
     }
-
-  
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
     }
-       
+    
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
         
-        if let title = music?.metadata?.name{
-            self.navigationItem.title = title;
-        }
-        
         guard let url = URL(string: (music?.downloadURL)!) else {
             return;
         }
         
+        if let artwork = music?.metadata?.image?.first{
+            playerKit.imgArtwork.loadImage(url: artwork);
+            bgCover.loadImage(url: artwork);
+            bgCover.makeBlur();
+        }
         
-        PLAYER = AVPlayer(url: url);
+        if let artist = music?.metadata?.artists?.first?.name{
+            playerKit.lblArtist.text = artist;
+        }
+        
+        if let song = music?.metadata?.name{
+            playerKit.lblSongName.text = song;
+
+        }
+        
+        PLAYER.delegate = self;
+        PLAYER.makeNewPlay(url: url);
         PLAYER.play();
         
         
-        playerKit.imgArtwork.loadImage(url: (music?.metadata?.image?.first)!);
-        playerKit.lblArtist.text = music?.metadata?.artists?.first?.name;
-        playerKit.lblSongName.text = music?.metadata?.name;
         
-        bgCover.loadImage(url: (music?.metadata?.image?.first)!)
-        bgCover.makeBlur();
-        
-        
-        PLAYER.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
 
-        
         playerController.compeletionPlayOrPause = {
             if PLAYER.isPlaying{
                 PLAYER.pause();
                 self.playerController.changeState(state: .Play);
             }else{
-               PLAYER.play();
+                PLAYER.play();
                 self.playerController.changeState(state: .Pause);
             }
         }
         
-    }
     
-    func radioPlayer(_ player: FRadioPlayer, playerStateDidChange state: FRadioPlayerState) {
         
-        switch state {
-        case .loading:
-            appearLoading();
-        case .loadingFinished:
-           disappearLoading();
-           playerController.changeState(state: .Pause);
-        default: break
+        
+        PLAYER.avPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: .main) { (timr) in
+            let time = CMTimeGetSeconds(PLAYER.avPlayer.currentTime());
+            self.slider!.value = Float ( time );
             
+            let leftSecond = Int(time)
+            self.lblCurrentTime.text = NSString(format: "%2d:%02d", leftSecond/60, leftSecond%60) as String;
         }
         
     }
     
-    func radioPlayer(_ player: FRadioPlayer, playbackStateDidChange state: FRadioPlaybackState) {
+    @IBAction func changeSeekTime(_ sender: Any) {
+        let seconds = Int64(slider.value)
+        let targetTime  = CMTimeMake(value: seconds, timescale: 1)
+
+        PLAYER.avPlayer!.seek(to: targetTime)
         
+        if PLAYER.avPlayer!.rate == 0
+        {
+            PLAYER.play()
+        }
     }
-    
-    
     
     func updateTimelineSong() {
-        
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath != "status" {
-            return;
-        }
-        
-        
         
     }
 }

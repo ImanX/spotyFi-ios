@@ -14,7 +14,7 @@ import AVFoundation
 public let SOCKET_URL = "http://46.101.30.103:8089/";
 public let DOWNLOAD_URL = "http://46.101.30.103:8080/"
 public let SOCKET_PORT:Int32 = 80;
-public var PLAYER = AVPlayer(playerItem: nil);
+internal var PLAYER = PlayerProvider.shared;
 
 public func xprint(cls:AnyClass?,any:Any){
     let className = (cls == nil) ? String() : String(describing: cls.self!)
@@ -157,11 +157,5 @@ extension UIImageView{
         }
     }
     
-}
-
-extension AVPlayer {
-    var isPlaying: Bool {
-        return rate != 0 && error == nil
-    }
 }
 

@@ -11,12 +11,11 @@ import UIKit
 @IBDesignable
 class UIPlayerKit: UIView {
 
+
     @IBOutlet weak var lblArtist: UILabel!
     @IBOutlet weak var lblSongName: UILabel!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var lblFullTime: UILabel!
-    @IBOutlet weak var lblCurrentTime: UILabel!
     @IBOutlet weak var imgArtwork: UIImageView!
+        
     override init(frame: CGRect) {
         super.init(frame: frame);
         inflate();
