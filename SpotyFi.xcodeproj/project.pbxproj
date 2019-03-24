@@ -20,7 +20,10 @@
 		7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6B223434EF005BE379 /* RESOURCE.swift */; };
 		7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6D223435B5005BE379 /* Socketer.swift */; };
 		7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED712234EF42005BE379 /* SocketerDelegate.swift */; };
-		7E880436224576F700EA5630 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E880435224576F700EA5630 /* Player.swift */; };
+		7E6F2CE42246F22300E58E72 /* UIPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2CE32246F22300E58E72 /* UIPlayerKit.swift */; };
+		7E6F2CE62246F55A00E58E72 /* UIPlayerKit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F2CE52246F55A00E58E72 /* UIPlayerKit.xib */; };
+		7E6F2CEC224794DD00E58E72 /* UIPlayerControlKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2CEB224794DD00E58E72 /* UIPlayerControlKit.swift */; };
+		7E6F2CEE224794F000E58E72 /* UIPlayerControlKit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F2CED224794F000E58E72 /* UIPlayerControlKit.xib */; };
 		7E88043822464FED00EA5630 /* UIPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043722464FED00EA5630 /* UIPlayerViewController.swift */; };
 		7E88043B2246632300EA5630 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043A2246632300EA5630 /* Model.swift */; };
 		7E88043D224665A200EA5630 /* RequestMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E88043C224665A200EA5630 /* RequestMusic.swift */; };
@@ -42,7 +45,10 @@
 		7E58ED6B223434EF005BE379 /* RESOURCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESOURCE.swift; sourceTree = "<group>"; };
 		7E58ED6D223435B5005BE379 /* Socketer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socketer.swift; sourceTree = "<group>"; };
 		7E58ED712234EF42005BE379 /* SocketerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketerDelegate.swift; sourceTree = "<group>"; };
-		7E880435224576F700EA5630 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7E6F2CE32246F22300E58E72 /* UIPlayerKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerKit.swift; sourceTree = "<group>"; };
+		7E6F2CE52246F55A00E58E72 /* UIPlayerKit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIPlayerKit.xib; sourceTree = "<group>"; };
+		7E6F2CEB224794DD00E58E72 /* UIPlayerControlKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerControlKit.swift; sourceTree = "<group>"; };
+		7E6F2CED224794F000E58E72 /* UIPlayerControlKit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIPlayerControlKit.xib; sourceTree = "<group>"; };
 		7E88043722464FED00EA5630 /* UIPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerViewController.swift; sourceTree = "<group>"; };
 		7E88043A2246632300EA5630 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7E88043C224665A200EA5630 /* RequestMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMusic.swift; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 		7E58ED4F22342624005BE379 /* SpotyFi */ = {
 			isa = PBXGroup;
 			children = (
+				7E6F2CE72247946200E58E72 /* Customs */,
 				7E8804392246630B00EA5630 /* Models */,
 				7E58ED7022343F0B005BE379 /* Socket */,
 				7E58ED6A223432F6005BE379 /* ViewController */,
@@ -97,7 +104,6 @@
 				7E58ED5722342624005BE379 /* SpotyFi.xcdatamodeld */,
 				7E58ED6B223434EF005BE379 /* RESOURCE.swift */,
 				7E5495CC223580DB00634042 /* Banner.swift */,
-				7E880435224576F700EA5630 /* Player.swift */,
 			);
 			path = SpotyFi;
 			sourceTree = "<group>";
@@ -119,6 +125,33 @@
 				7E58ED712234EF42005BE379 /* SocketerDelegate.swift */,
 			);
 			path = Socket;
+			sourceTree = "<group>";
+		};
+		7E6F2CE72247946200E58E72 /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				7E6F2CEF224794FC00E58E72 /* PlayerControlKit */,
+				7E6F2CE92247947700E58E72 /* PlayerKit */,
+			);
+			path = Customs;
+			sourceTree = "<group>";
+		};
+		7E6F2CE92247947700E58E72 /* PlayerKit */ = {
+			isa = PBXGroup;
+			children = (
+				7E6F2CE32246F22300E58E72 /* UIPlayerKit.swift */,
+				7E6F2CE52246F55A00E58E72 /* UIPlayerKit.xib */,
+			);
+			path = PlayerKit;
+			sourceTree = "<group>";
+		};
+		7E6F2CEF224794FC00E58E72 /* PlayerControlKit */ = {
+			isa = PBXGroup;
+			children = (
+				7E6F2CEB224794DD00E58E72 /* UIPlayerControlKit.swift */,
+				7E6F2CED224794F000E58E72 /* UIPlayerControlKit.xib */,
+			);
+			path = PlayerControlKit;
 			sourceTree = "<group>";
 		};
 		7E8804392246630B00EA5630 /* Models */ = {
@@ -216,8 +249,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E58ED5E22342625005BE379 /* LaunchScreen.storyboard in Resources */,
+				7E6F2CEE224794F000E58E72 /* UIPlayerControlKit.xib in Resources */,
 				7E58ED5B22342625005BE379 /* Assets.xcassets in Resources */,
 				7E58ED5622342624005BE379 /* Main.storyboard in Resources */,
+				7E6F2CE62246F55A00E58E72 /* UIPlayerKit.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,8 +281,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ESTMusicIndicator/ESTMusicIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Matisse/Matisse.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -255,8 +292,10 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTMusicIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRadioPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Matisse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -303,8 +342,9 @@
 				7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */,
 				7E88043822464FED00EA5630 /* UIPlayerViewController.swift in Sources */,
 				7E88043B2246632300EA5630 /* Model.swift in Sources */,
-				7E880436224576F700EA5630 /* Player.swift in Sources */,
 				7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */,
+				7E6F2CE42246F22300E58E72 /* UIPlayerKit.swift in Sources */,
+				7E6F2CEC224794DD00E58E72 /* UIPlayerControlKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@ import UIKit
 import Starscream
 import FRadioPlayer
 import SwiftyJSON;
+import ESTMusicIndicator
 class ViewController: UIBaseViewController{
 
     
@@ -81,27 +82,29 @@ class ViewController: UIBaseViewController{
    
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if player.isPlaying {
-            navigationItem.title = "Playing..."
-        }
+        super.viewWillAppear(animated);
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
-       
+        if PLAYER.isPlaying{
+            let indicator = ESTMusicIndicatorView.init(frame: CGRect.zero)
+            indicator.sizeToFit();
+            indicator.state = .playing;
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator);
+            navigationItem.rightBarButtonItem?.action = #selector(openUIPlayerViewController);
+        }
         
-    
     }
     
     override func didConnect() {
         super.didConnect();
        
-//        let request = RequestMusic(url: "https://open.spotify.com/track/33IOhptvC2Qoy2UhjiHXLV?si=MciPM_uAS9u8x5gIrvSh1Q");
-//        UIBaseViewController.socket.send(string: request.toJSON().description);
     }
-
     
+    @objc func openUIPlayerViewController() {
+        
+    }
 
     override func didReceiveMessage(data: String) {        
         let music = Music(data: data);

@@ -1,6 +1,8 @@
 PODS:
+  - ESTMusicIndicator (0.2.0)
   - FRadioPlayer (0.1.15)
   - MarqueeLabel/Swift (3.2.0)
+  - Matisse (3.0.0)
   - NotificationBannerSwift (2.0.1):
     - MarqueeLabel/Swift (~> 3.2.0)
     - SnapKit (~> 4.2.0)
@@ -9,19 +11,23 @@ PODS:
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
+  - ESTMusicIndicator
   - FRadioPlayer
+  - Matisse
   - NotificationBannerSwift
   - Starscream (~> 3.0.2)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  ESTMusicIndicator: 80a123b51a7de3caa44dc91829b9619185dad0f6
   FRadioPlayer: 0ad8b63756c3597af3c4a2672334c5dc22e026e4
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
+  Matisse: e36695f77daa3f6c8508ae5988bf7e7ef4c38d66
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: b4c6342aff478c4d8ad580ad129f6b45b8238b4b
+PODFILE CHECKSUM: 3f856e66bdc1c94536d9ae571ec5045b556e6be9
 
 COCOAPODS: 1.4.0

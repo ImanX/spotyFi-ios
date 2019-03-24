@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import NotificationBannerSwift
-import FRadioPlayer
+import AVFoundation;
 
 class UIBaseViewController: UIViewController ,SocketerDelegate{
     
@@ -20,7 +20,6 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
     }
     
     public static var socket:Socketer!;
-    public let player = FRadioPlayer.shared;
 
     
     

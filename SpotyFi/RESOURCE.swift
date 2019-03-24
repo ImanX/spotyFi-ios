@@ -8,11 +8,13 @@
 
 import Foundation
 import UIKit
+import Matisse
+import AVFoundation
 
 public let SOCKET_URL = "http://46.101.30.103:8089/";
 public let DOWNLOAD_URL = "http://46.101.30.103:8080/"
 public let SOCKET_PORT:Int32 = 80;
-
+public var PLAYER = AVPlayer(playerItem: nil);
 
 public func xprint(cls:AnyClass?,any:Any){
     let className = (cls == nil) ? String() : String(describing: cls.self!)
@@ -102,3 +104,64 @@ extension UIBaseViewController{
         }
     }
 }
+
+
+extension UIImageView{
+    func loadImage(url:URL){
+        Matisse.load(url).fetch { (req, image, err) in
+            self.image = image;
+            //self.makeBlur();
+        }
+        
+    }
+    
+    func dropShadow() {
+        let shadowSize : CGFloat = 5.0
+        let shadowPath = UIBezierPath(rect: CGRect(x: -shadowSize / 2,
+                                                   y: -shadowSize / 2,
+                                                   width: self.frame.size.width + shadowSize,
+                                                   height: self.frame.size.height + shadowSize))
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.white.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowPath = shadowPath.cgPath
+    }
+    
+    func makeBlur() {
+//        let imageToBlur = CIImage(image: self.image!)
+//        let blurfilter = CIFilter(name: "CIGaussianBlur")
+//        blurfilter!.setValue(imageToBlur, forKey: "inputImage")
+//        let resultImage = blurfilter!.value(forKey: "outputImage") as! CIImage
+//        let blurredImage = UIImage(ciImage: resultImage)
+//        self.image = blurredImage
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds;
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(blurEffectView);
+        
+    }
+    
+    
+    @IBInspectable
+    public var tintCompatColor: UIColor {
+        get{
+            return self.tintColor;
+        }
+        
+        set{
+            self.image = self.image?.withRenderingMode(.alwaysTemplate)
+            self.tintColor = newValue;
+        }
+    }
+    
+}
+
+extension AVPlayer {
+    var isPlaying: Bool {
+        return rate != 0 && error == nil
+    }
+}
+

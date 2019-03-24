@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V7x-sC-DdE">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SpotyFi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paste spotify URL here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cqf-1L-9Cr">
-                                <rect key="frame" x="16" y="242" width="344" height="30"/>
+                                <rect key="frame" x="16" y="218" width="344" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search" textContentType="url"/>
@@ -50,16 +50,50 @@
             <objects>
                 <viewController storyboardIdentifier="UIPlayerViewController" id="PbB-2T-nOI" customClass="UIPlayerViewController" customModule="SpotyFi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UAc-SM-zBW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uyu-Wp-tUQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUa-cl-ct4" customClass="UIPlayerKit" customModule="SpotyFi" customModuleProvider="target">
+                                <rect key="frame" x="16" y="81" width="343" height="172"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="172" id="KYX-Te-0g9"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMx-JU-azk" customClass="UIPlayerControlKit" customModule="SpotyFi" customModuleProvider="target">
+                                <rect key="frame" x="16" y="430" width="343" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="E0G-Pm-epZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PfQ-GM-Zpn" firstAttribute="trailing" secondItem="GUa-cl-ct4" secondAttribute="trailing" constant="16" id="4FB-ZD-I2I"/>
+                            <constraint firstItem="GUa-cl-ct4" firstAttribute="top" secondItem="PfQ-GM-Zpn" secondAttribute="top" constant="17" id="72q-Zx-a7H"/>
+                            <constraint firstItem="GUa-cl-ct4" firstAttribute="leading" secondItem="PfQ-GM-Zpn" secondAttribute="leading" constant="16" id="BO6-u4-oBR"/>
+                            <constraint firstItem="cMx-JU-azk" firstAttribute="leading" secondItem="PfQ-GM-Zpn" secondAttribute="leading" constant="16" id="ByB-c8-Jfh"/>
+                            <constraint firstItem="PfQ-GM-Zpn" firstAttribute="trailing" secondItem="cMx-JU-azk" secondAttribute="trailing" constant="16" id="Dnp-e2-jI2"/>
+                            <constraint firstItem="Uyu-Wp-tUQ" firstAttribute="top" secondItem="UAc-SM-zBW" secondAttribute="top" id="LSb-we-gdd"/>
+                            <constraint firstItem="cMx-JU-azk" firstAttribute="top" secondItem="GUa-cl-ct4" secondAttribute="bottom" constant="177" id="Naz-lI-uC5"/>
+                            <constraint firstItem="Uyu-Wp-tUQ" firstAttribute="leading" secondItem="PfQ-GM-Zpn" secondAttribute="leading" id="NtU-oY-pg5"/>
+                            <constraint firstAttribute="bottom" secondItem="Uyu-Wp-tUQ" secondAttribute="bottom" id="WDF-Iu-RLp"/>
+                            <constraint firstAttribute="trailing" secondItem="Uyu-Wp-tUQ" secondAttribute="trailing" id="hOk-Sc-vNE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PfQ-GM-Zpn"/>
                     </view>
                     <navigationItem key="navigationItem" id="7qS-pk-0Op"/>
+                    <connections>
+                        <outlet property="bgCover" destination="Uyu-Wp-tUQ" id="p3H-7k-d1y"/>
+                        <outlet property="playerController" destination="cMx-JU-azk" id="c3R-p9-viO"/>
+                        <outlet property="playerKit" destination="GUa-cl-ct4" id="dgJ-EH-mnx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zK-yj-1Mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="26"/>
+            <point key="canvasLocation" x="1985.625" y="25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2fr-28-hNY">
@@ -68,7 +102,7 @@
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="iuh-hE-l1z">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
