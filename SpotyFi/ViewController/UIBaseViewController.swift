@@ -38,7 +38,10 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
     }
     
     func didDisconnect() {
-        
+        DispatchQueue.main.async {
+            self.banner.reloadLabel(title: "Disconnected");
+        }
+        disappearLoading();
     }
     
     func didReceiveMessage(data: String) {
@@ -46,7 +49,7 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
     }
     
     func didException(error: Error?) {
-        
+        print(error?.localizedDescription);
     }
     
     override func viewWillAppear(_ animated: Bool) {

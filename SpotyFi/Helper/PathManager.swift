@@ -27,9 +27,10 @@ class PathManager {
     }
     
     
-    public func writeFile(at:URL ,to:URL? = DOWNLOADED_DIR , name:String) -> Bool{
+    @discardableResult
+    public func writeFile(at:URL ,to:URL? = DOWNLOADED_DIR , name:String) -> (Bool , URL?){
         guard var path  = to else{
-            return true;
+            return (true , nil);
         }
         
         
@@ -39,9 +40,9 @@ class PathManager {
             let data = try Data(contentsOf: at);
             path = path.appendingPathComponent(name).appendingPathExtension("mp3");
             fileManager.createFile(atPath: path.path, contents: data, attributes: nil);
-            return true;
+            return (true , path);
         }catch{
-            return false;
+            return (false,nil);
         }
     }
     

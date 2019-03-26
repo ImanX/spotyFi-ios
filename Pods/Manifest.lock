@@ -1,4 +1,5 @@
 PODS:
+  - Bottomsheet (1.4.0)
   - Digger (0.0.5)
   - ESTMusicIndicator (0.2.0)
   - FRadioPlayer (0.1.15)
@@ -16,6 +17,7 @@ PODS:
     - XLActionController/Core
 
 DEPENDENCIES:
+  - Bottomsheet
   - Digger
   - ESTMusicIndicator
   - FRadioPlayer
@@ -27,6 +29,7 @@ DEPENDENCIES:
   - XLActionController/Spotify
 
 SPEC CHECKSUMS:
+  Bottomsheet: e1b1f2251694457eaab4599fab1ec5eede5a537e
   Digger: c474bde76a91e0a36f12101c5dfe7e86774b15d3
   ESTMusicIndicator: 80a123b51a7de3caa44dc91829b9619185dad0f6
   FRadioPlayer: 0ad8b63756c3597af3c4a2672334c5dc22e026e4
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XLActionController: d2ab12a967ae0fee0b4563b8d809c8fb13ebc636
 
-PODFILE CHECKSUM: a2307cf4f018c7a79205eb343643554c411c5a13
+PODFILE CHECKSUM: e6659a7af7878ef3ab8f65651c84e73ca240de88
 
 COCOAPODS: 1.4.0

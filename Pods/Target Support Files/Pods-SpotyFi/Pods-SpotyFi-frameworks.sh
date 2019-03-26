@@ -134,6 +134,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Bottomsheet/Bottomsheet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Digger/Digger.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ESTMusicIndicator/ESTMusicIndicator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework"
@@ -147,6 +148,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Bottomsheet/Bottomsheet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Digger/Digger.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ESTMusicIndicator/ESTMusicIndicator.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework"

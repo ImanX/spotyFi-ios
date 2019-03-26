@@ -65,7 +65,6 @@ class ViewController: UIBaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad();
-    
         self.edtURL.delegate = self;
     }
    
@@ -76,15 +75,17 @@ class ViewController: UIBaseViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
-        if PLAYER.isPlaying{
-            let indicator = ESTMusicIndicatorView.init(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 200, height: 200)));
-           // indicator.sizeToFit();
-            indicator.state = .playing;
-            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator);
-            navigationItem.rightBarButtonItem?.customView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openUIPlayerViewController)))
-
-            
-        }
+//        if PLAYER.isPlaying{
+//            let indicator = ESTMusicIndicatorView.init(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 200, height: 200)));
+//           // indicator.sizeToFit();
+//            indicator.state = .playing;
+//            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator);
+//            navigationItem.rightBarButtonItem?.customView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openUIPlayerViewController)))
+//
+//
+//        }
+        
+        
         
     }
     
@@ -93,15 +94,20 @@ class ViewController: UIBaseViewController{
        
     }
     
+
+    
     @objc func openUIPlayerViewController() {
         UIPlayerViewController.represent();
 
     }
 
     override func didReceiveMessage(data: String) {
-        let music = Music(data: data);
         self.disappearLoading();
-        UIPlayerViewController.start(musics: [music]);
+
+        let music = Music(data: data);
+        let player = SingleMusicPlayer(music: music);
+        UIPlayerViewController.start(delegate: player);
+      
         
     }
     

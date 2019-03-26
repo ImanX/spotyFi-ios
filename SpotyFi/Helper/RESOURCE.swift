@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Matisse
 import AVFoundation
+import XLActionController
 
 internal var PLAYER_VIEWCONTROLLER:UIPlayerViewController!;
 internal var PLAYER = PlayerProvider.shared;
@@ -27,6 +28,17 @@ public func xprint(cls:AnyClass?,any:Any){
 
 public func xprint(any:Any){
     xprint(cls: nil, any: any);
+}
+
+func showAlertAction(music:Music , artwork:UIImage , actions:[Action<ActionData>])-> SpotifyActionController{
+    let song = music.metadata?.name;
+    let artist = music.metadata?.artists?.first?.name;
+    let actionController = SpotifyActionController()
+    actionController.headerData = SpotifyHeaderData(title:song! , subtitle: artist!, image: artwork);
+    actions.forEach { (action) in
+        actionController.addAction(action);
+    }
+    return actionController;
 }
 
 
@@ -134,6 +146,12 @@ extension UIImageView{
     
     func makeBlur() {
 
+        self.subviews.forEach { (view) in
+            if view is UIVisualEffectView {
+                view.removeFromSuperview();
+            }
+        }
+        
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds;

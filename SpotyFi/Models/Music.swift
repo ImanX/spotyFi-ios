@@ -42,6 +42,11 @@ class Metadata{
     var artists:[Artist]?;
     var image:[URL]?;
     var photo:UIImage?;
+    var isLocal:Bool {
+        get{
+            return PathManager.shared.hasExistFile(file: name!);
+        }
+    }
     
     
     

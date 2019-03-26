@@ -97,19 +97,11 @@
                                     <constraint firstAttribute="height" constant="57" id="mff-mR-14A"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-48-KDd">
+                            <navigationBar hidden="YES" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-48-KDd">
                                 <rect key="frame" x="0.0" y="589" width="375" height="78"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem prompt="  " id="hxP-1A-YKe">
-                                        <barButtonItem key="rightBarButtonItem" tag="-1" style="plain" systemItem="action" id="xHx-kP-l6f">
-                                            <inset key="imageInsets" minX="0.0" minY="-22" maxX="10" maxY="0.0"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <action selector="openAction" destination="PbB-2T-nOI" id="7S2-kl-dAH"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem prompt="  " id="hxP-1A-YKe"/>
                                 </items>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="hieghtSize">
@@ -148,7 +140,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PfQ-GM-Zpn"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Now Playing" id="7qS-pk-0Op"/>
+                    <navigationItem key="navigationItem" title="Now Playing" id="7qS-pk-0Op">
+                        <barButtonItem key="rightBarButtonItem" tag="-1" style="plain" systemItem="action" id="xHx-kP-l6f">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="openAction" destination="PbB-2T-nOI" id="7S2-kl-dAH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bgCover" destination="Uyu-Wp-tUQ" id="p3H-7k-d1y"/>
                         <outlet property="lblCopyrights" destination="Vxu-zD-VL4" id="fKY-4g-ztf"/>
@@ -308,7 +307,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload" translatesAutoresizingMaskIntoConstraints="NO" id="rBJ-Sn-pZT">
-                                                    <rect key="frame" x="285" y="40" width="20" height="20"/>
+                                                    <rect key="frame" x="340" y="40" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="LVt-4t-aLk"/>
                                                         <constraint firstAttribute="width" constant="20" id="V5z-7q-enj"/>
