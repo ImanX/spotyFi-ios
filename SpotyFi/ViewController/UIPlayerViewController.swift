@@ -124,6 +124,10 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
             playerKit.imgArtwork.loadImage(url: artwork);
             bgCover.loadImage(url: artwork);
             bgCover.makeBlur();
+        }else if let artwork = music?.metadata?.photo {
+            playerKit.imgArtwork.image = artwork;
+            bgCover.image = artwork;
+            bgCover.makeBlur();
         }
         
         if let artist = music?.metadata?.artists?.first?.name{
@@ -137,7 +141,7 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
 
         
         PLAYER.delegate = self;
-        PLAYER.makeNewPlay(url: (isDownloadedFile) ? PathManager.shared.getFileURL(file: song) : url);
+        PLAYER.makeNewPlay(url: url);
         PLAYER.play();
         
         
@@ -216,8 +220,7 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         
         Downloader().enqueue(url: url) { (percents, url, error) in
             if (url != nil){
-                print(url!);
-                PathManager.shared.writeFile(at: url!, name: (self.music?.metadata?.name)!)
+               PathManager.shared.writeFile(at: url!, name: (self.music?.metadata?.name)!)
                 return;
             }
             
@@ -228,6 +231,7 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
             
             
             if (percents != nil){
+                print(percents);
               //  self.btnDownload.downloadPercent = CGFloat(percents!);
             }
             

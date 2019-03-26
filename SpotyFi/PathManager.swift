@@ -60,4 +60,18 @@ class PathManager {
         return (url?.appendingPathComponent(file).appendingPathExtension("mp3"))!;
         
     }
+    
+    public func getFilesURLs()->[URL]?{
+        do{
+        let dirs = try fileManager.contentsOfDirectory(at: DOWNLOADED_DIR!, includingPropertiesForKeys: nil, options: []);
+        
+        if dirs.count == 0 {
+            return nil;
+        }
+        
+        return dirs;
+        }catch{
+            return nil;
+        }
+    }
 }

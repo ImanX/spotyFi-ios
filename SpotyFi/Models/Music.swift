@@ -22,6 +22,10 @@ class Music: Model {
         self.metadata = Metadata(json: json["meta_tags"]);
     }
     
+    override init() {
+        metadata = Metadata();
+    }
+    
     override func toJSON() -> JSON {
         return json;
     }
@@ -36,7 +40,13 @@ class Metadata{
     var name:String?
     var lyrics:String?;
     var artists:[Artist]?;
-    var image:[URL]?;    
+    var image:[URL]?;
+    var photo:UIImage?;
+    
+    
+    
+    init() {
+    }
     
     init(json:JSON) {
         releaseDate = json["release_date"].string;
@@ -45,6 +55,7 @@ class Metadata{
         genre = json["genre"].string;
         name = json["name"].string;
         lyrics = json["lyrics"].string;
+        
 
         
         
@@ -87,6 +98,10 @@ class Artist {
     
     var name:String?;
     var url:String?;
+    
+    init() {
+        
+    }
     
     init(json:JSON) {
         name = json["name"].string;
