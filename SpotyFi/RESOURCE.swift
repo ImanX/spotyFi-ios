@@ -11,10 +11,14 @@ import UIKit
 import Matisse
 import AVFoundation
 
-public let SOCKET_URL = "http://46.101.30.103:8089/";
-public let DOWNLOAD_URL = "http://46.101.30.103:8080/"
-public let SOCKET_PORT:Int32 = 80;
+internal var PLAYER_VIEWCONTROLLER:UIPlayerViewController!;
 internal var PLAYER = PlayerProvider.shared;
+internal var SOCKET:Socketer!;
+public let SOCKET_URL = "http://46.101.30.103:8089/ws";
+public let DOWNLOAD_URL = "http://46.101.30.103:8080/";
+public let DOWNLOADED_DIR = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mp3Downloaded");
+
+
 
 public func xprint(cls:AnyClass?,any:Any){
     let className = (cls == nil) ? String() : String(describing: cls.self!)
@@ -159,3 +163,6 @@ extension UIImageView{
     
 }
 
+extension UINavigationBar{
+    
+}

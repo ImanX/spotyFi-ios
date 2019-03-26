@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E53A9FB3F7437601E2D2072 /* Pods_SpotyFi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */; };
+		7E17020F2249891200E276BF /* UIAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E17020E2249891200E276BF /* UIAlertAction.swift */; };
 		7E5495CD223580DB00634042 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5495CC223580DB00634042 /* Banner.swift */; };
 		7E5495CF223836A400634042 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E5495CE223836A400634042 /* MediaPlayer.framework */; };
 		7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED5022342624005BE379 /* AppDelegate.swift */; };
@@ -20,6 +21,8 @@
 		7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6B223434EF005BE379 /* RESOURCE.swift */; };
 		7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED6D223435B5005BE379 /* Socketer.swift */; };
 		7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E58ED712234EF42005BE379 /* SocketerDelegate.swift */; };
+		7E5DCF9F224946100020895E /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DCF9E224946100020895E /* Downloader.swift */; };
+		7E5DCFA122496C720020895E /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5DCFA022496C720020895E /* PathManager.swift */; };
 		7E6F2CE42246F22300E58E72 /* UIPlayerKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2CE32246F22300E58E72 /* UIPlayerKit.swift */; };
 		7E6F2CE62246F55A00E58E72 /* UIPlayerKit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F2CE52246F55A00E58E72 /* UIPlayerKit.xib */; };
 		7E6F2CEC224794DD00E58E72 /* UIPlayerControlKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2CEB224794DD00E58E72 /* UIPlayerControlKit.swift */; };
@@ -32,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E17020E2249891200E276BF /* UIAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertAction.swift; sourceTree = "<group>"; };
 		7E5495CC223580DB00634042 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		7E5495CE223836A400634042 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7E58ED4D22342624005BE379 /* SpotyFi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotyFi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +50,8 @@
 		7E58ED6B223434EF005BE379 /* RESOURCE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESOURCE.swift; sourceTree = "<group>"; };
 		7E58ED6D223435B5005BE379 /* Socketer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socketer.swift; sourceTree = "<group>"; };
 		7E58ED712234EF42005BE379 /* SocketerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketerDelegate.swift; sourceTree = "<group>"; };
+		7E5DCF9E224946100020895E /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		7E5DCFA022496C720020895E /* PathManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathManager.swift; sourceTree = "<group>"; };
 		7E6F2CE32246F22300E58E72 /* UIPlayerKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerKit.swift; sourceTree = "<group>"; };
 		7E6F2CE52246F55A00E58E72 /* UIPlayerKit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIPlayerKit.xib; sourceTree = "<group>"; };
 		7E6F2CEB224794DD00E58E72 /* UIPlayerControlKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerControlKit.swift; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 		7E58ED4F22342624005BE379 /* SpotyFi */ = {
 			isa = PBXGroup;
 			children = (
+				7E5DCF9B22493C7D0020895E /* Downloader */,
 				7E6F2CE72247946200E58E72 /* Customs */,
 				7E8804392246630B00EA5630 /* Models */,
 				7E58ED7022343F0B005BE379 /* Socket */,
@@ -107,6 +114,8 @@
 				7E58ED6B223434EF005BE379 /* RESOURCE.swift */,
 				7E5495CC223580DB00634042 /* Banner.swift */,
 				7E6F2CF02247C3CA00E58E72 /* PlayerProvider.swift */,
+				7E5DCFA022496C720020895E /* PathManager.swift */,
+				7E17020E2249891200E276BF /* UIAlertAction.swift */,
 			);
 			path = SpotyFi;
 			sourceTree = "<group>";
@@ -128,6 +137,14 @@
 				7E58ED712234EF42005BE379 /* SocketerDelegate.swift */,
 			);
 			path = Socket;
+			sourceTree = "<group>";
+		};
+		7E5DCF9B22493C7D0020895E /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				7E5DCF9E224946100020895E /* Downloader.swift */,
+			);
+			path = Downloader;
 			sourceTree = "<group>";
 		};
 		7E6F2CE72247946200E58E72 /* Customs */ = {
@@ -284,25 +301,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Digger/Digger.framework",
 				"${BUILT_PRODUCTS_DIR}/ESTMusicIndicator/ESTMusicIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/FRadioPlayer/FRadioPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Matisse/Matisse.framework",
+				"${BUILT_PRODUCTS_DIR}/NFDownloadButton/NFDownloadButton.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/XLActionController/XLActionController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Digger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTMusicIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FRadioPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Matisse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NFDownloadButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLActionController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -334,16 +357,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E5DCFA122496C720020895E /* PathManager.swift in Sources */,
 				7E58ED5322342624005BE379 /* ViewController.swift in Sources */,
 				7E88043F224667E900EA5630 /* Music.swift in Sources */,
 				7E6F2CF12247C3CA00E58E72 /* PlayerProvider.swift in Sources */,
 				7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */,
 				7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */,
+				7E17020F2249891200E276BF /* UIAlertAction.swift in Sources */,
 				7E88043D224665A200EA5630 /* RequestMusic.swift in Sources */,
 				7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */,
 				7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */,
 				7E5495CD223580DB00634042 /* Banner.swift in Sources */,
 				7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */,
+				7E5DCF9F224946100020895E /* Downloader.swift in Sources */,
 				7E88043822464FED00EA5630 /* UIPlayerViewController.swift in Sources */,
 				7E88043B2246632300EA5630 /* Model.swift in Sources */,
 				7E58ED5122342624005BE379 /* AppDelegate.swift in Sources */,

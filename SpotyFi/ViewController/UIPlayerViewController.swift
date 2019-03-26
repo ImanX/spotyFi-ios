@@ -9,11 +9,54 @@
 import UIKit
 import FRadioPlayer
 import AVFoundation
+import NFDownloadButton
+import Digger
+import XLActionController
+
 class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
+
+    
+  
+    
+    
+    
+    private var music:Music?;
+    private var isDownloadedFile = false;
+    @IBOutlet weak var playerKit: UIPlayerKit!
+    @IBOutlet weak var bgCover: UIImageView!
+    @IBOutlet weak var playerController: UIPlayerControlKit!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var lblFullTime: UILabel!
+    @IBOutlet weak var lblCurrentTime: UILabel!
+    @IBOutlet weak var lblCopyrights: UILabel!
+
+
+    
+    
+    
+    
+    @discardableResult
+    public class func start(music:Music?) -> UIPlayerViewController{
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(type: UIPlayerViewController.self);
+        vc.music = music;
+        if let navigationViewController = UIApplication.topViewController as? UINavigationController{
+            navigationViewController.pushViewController(vc, animated: true);
+        }
+        return vc;
+        
+    }
+    
+    public class func represent(){
+        guard let parentVC  = UIApplication.topViewController as? UINavigationController ,let playerVC = PLAYER_VIEWCONTROLLER else {
+            return;
+        }
+        
+        parentVC.pushViewController(playerVC, animated: true);
+    }
     
     
     func didStart() {
-
+        
     }
     
     func didPlay() {
@@ -34,13 +77,14 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         let seconds = CMTimeGetSeconds(duration!);
         self.slider.maximumValue = Float(seconds);
         self.playerController.changeState(state: .Pause);
-
+        
         let fullSecond = Int(seconds);
         self.lblFullTime.text = NSString(format: "%2d:%02d", fullSecond/60, fullSecond%60) as String;
-
-
-
+        
+        
+        
     }
+    
     
     func didFailureToPlay() {
         disappearLoading();
@@ -48,40 +92,29 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
     }
     
     
-    
-    private var music:Music?;
-    @IBOutlet weak var playerKit: UIPlayerKit!
-    @IBOutlet weak var bgCover: UIImageView!
-    @IBOutlet weak var playerController: UIPlayerControlKit!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var lblFullTime: UILabel!
-    @IBOutlet weak var lblCurrentTime: UILabel!
-    
-    
-    
-    
-    @discardableResult
-    public class func start(music:Music?) -> UIPlayerViewController{
-        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(type: UIPlayerViewController.self);
-        vc.music = music;
-        if let navigationViewController = UIApplication.topViewController as? UINavigationController{
-            navigationViewController.pushViewController(vc, animated: true);
-        }
-        
-        return vc;
-        
-    }
-    
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
+        
+
     }
     
-    
+   
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        PLAYER_VIEWCONTROLLER = self;
+    }
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        
+        guard let song = music?.metadata?.name else{
+            return
+        }
+        
+        
+        isDownloadedFile = PathManager.shared.hasExistFile(file: song)
+        playerKit.lblSongName.text = song;
+
         
         guard let url = URL(string: (music?.downloadURL)!) else {
             return;
@@ -97,13 +130,14 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
             playerKit.lblArtist.text = artist;
         }
         
-        if let song = music?.metadata?.name{
-            playerKit.lblSongName.text = song;
-
+        if let copyright = music?.metadata?.copyright{
+            lblCopyrights.text = copyright;
         }
+      
+
         
         PLAYER.delegate = self;
-        PLAYER.makeNewPlay(url: url);
+        PLAYER.makeNewPlay(url: (isDownloadedFile) ? PathManager.shared.getFileURL(file: song) : url);
         PLAYER.play();
         
         
@@ -144,9 +178,62 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         }
     }
     
-    func updateTimelineSong() {
+    @IBAction func openAction() {
+        
+        let song = music?.metadata?.name;
+        let artist = music?.metadata?.artists?.first?.name;
+        let artwork = playerKit.imgArtwork.image;
+        
+        let actionController = SpotifyActionController()
+        actionController.headerData = SpotifyHeaderData(title:song! , subtitle: artist!, image: artwork!);
+        actionController.addAction(Action(ActionData(title: "Download",
+                                                     image: #imageLiteral(resourceName: "download")),
+                                                     style: .default, handler: { action in
+                                                        self.download();
+        }))
+
+        
+        present(actionController, animated: true, completion: nil)
+        
+        
         
     }
+    
+    
+    
+    private func download(){
+        
+        if (isDownloadedFile){
+            return;
+        }
+        
+        
+        guard let safeNull = music?.downloadURL, let url = URL(string: safeNull)  else {
+            return;
+        }
+        
+        
+        
+        Downloader().enqueue(url: url) { (percents, url, error) in
+            if (url != nil){
+                print(url!);
+                PathManager.shared.writeFile(at: url!, name: (self.music?.metadata?.name)!)
+                return;
+            }
+            
+            if (error != nil){
+                print(error!);
+                return;
+            }
+            
+            
+            if (percents != nil){
+              //  self.btnDownload.downloadPercent = CGFloat(percents!);
+            }
+            
+        }
+    }
+    
 }
 
 

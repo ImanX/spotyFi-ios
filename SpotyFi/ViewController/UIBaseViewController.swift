@@ -19,8 +19,7 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
         return .lightContent;
     }
     
-    public static var socket:Socketer!;
-
+    
     
     
     
@@ -28,7 +27,7 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
         DispatchQueue.main.async {
             self.banner.show(title: "Connecting...");
         }
-
+        
     }
     
     func didConnect() {
@@ -47,7 +46,7 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
     }
     
     func didException(error: Error?) {
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,9 +57,11 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (UIBaseViewController.socket == nil) || (!UIBaseViewController.socket.isConnected)  {
-            UIBaseViewController.socket = Socketer(delegate: self);
-            UIBaseViewController.socket.connect();
+        
+        
+        if (SOCKET == nil) || (!SOCKET.isConnected)  {
+            SOCKET = Socketer(delegate: self);
+            SOCKET.connect();
         }
     }
     

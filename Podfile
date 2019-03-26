@@ -10,7 +10,8 @@ pod 'FRadioPlayer'
 pod 'SwiftyJSON'
 pod 'Matisse'
 pod 'ESTMusicIndicator'
-
-
+pod 'NFDownloadButton', '~> 0.0.6'
+pod 'Digger'
+pod 'XLActionController/Spotify'
 
 end

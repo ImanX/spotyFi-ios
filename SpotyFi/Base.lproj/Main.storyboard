@@ -96,6 +96,35 @@
                                     <constraint firstAttribute="height" constant="57" id="mff-mR-14A"/>
                                 </constraints>
                             </view>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="cLV-48-KDd">
+                                <rect key="frame" x="0.0" y="742" width="375" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="lc3-6J-e8I"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem prompt="  " id="hxP-1A-YKe">
+                                        <barButtonItem key="rightBarButtonItem" tag="-1" style="plain" systemItem="action" id="xHx-kP-l6f">
+                                            <inset key="imageInsets" minX="0.0" minY="-22" maxX="10" maxY="0.0"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="openAction" destination="PbB-2T-nOI" id="7S2-kl-dAH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="hieghtSize">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxu-zD-VL4">
+                                <rect key="frame" x="16" y="730" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -103,21 +132,28 @@
                             <constraint firstItem="PfQ-GM-Zpn" firstAttribute="trailing" secondItem="GUa-cl-ct4" secondAttribute="trailing" constant="16" id="4FB-ZD-I2I"/>
                             <constraint firstItem="GUa-cl-ct4" firstAttribute="top" secondItem="PfQ-GM-Zpn" secondAttribute="top" constant="30" id="72q-Zx-a7H"/>
                             <constraint firstItem="GUa-cl-ct4" firstAttribute="leading" secondItem="PfQ-GM-Zpn" secondAttribute="leading" constant="16" id="BO6-u4-oBR"/>
+                            <constraint firstItem="cLV-48-KDd" firstAttribute="leading" secondItem="PfQ-GM-Zpn" secondAttribute="leading" id="DM4-9W-t05"/>
                             <constraint firstItem="Uyu-Wp-tUQ" firstAttribute="top" secondItem="UAc-SM-zBW" secondAttribute="top" id="LSb-we-gdd"/>
                             <constraint firstItem="Uyu-Wp-tUQ" firstAttribute="leading" secondItem="PfQ-GM-Zpn" secondAttribute="leading" id="NtU-oY-pg5"/>
                             <constraint firstAttribute="bottom" secondItem="Uyu-Wp-tUQ" secondAttribute="bottom" id="WDF-Iu-RLp"/>
                             <constraint firstItem="aVU-iI-2v7" firstAttribute="top" secondItem="GUa-cl-ct4" secondAttribute="bottom" constant="100" id="Wen-fD-wGH"/>
+                            <constraint firstItem="cLV-48-KDd" firstAttribute="trailing" secondItem="PfQ-GM-Zpn" secondAttribute="trailing" id="Xqu-TH-y05"/>
+                            <constraint firstItem="Vxu-zD-VL4" firstAttribute="leading" secondItem="PfQ-GM-Zpn" secondAttribute="leading" constant="16" id="XyS-fF-uer"/>
                             <constraint firstItem="PfQ-GM-Zpn" firstAttribute="trailing" secondItem="aVU-iI-2v7" secondAttribute="trailing" constant="16" id="dEz-kB-ySM"/>
                             <constraint firstAttribute="trailing" secondItem="Uyu-Wp-tUQ" secondAttribute="trailing" id="hOk-Sc-vNE"/>
+                            <constraint firstItem="PfQ-GM-Zpn" firstAttribute="trailing" secondItem="Vxu-zD-VL4" secondAttribute="trailing" constant="16" id="hUd-A4-146"/>
+                            <constraint firstItem="cLV-48-KDd" firstAttribute="top" secondItem="Vxu-zD-VL4" secondAttribute="bottom" constant="12" id="haw-Wa-JYc"/>
                             <constraint firstItem="cMx-JU-azk" firstAttribute="top" secondItem="aVU-iI-2v7" secondAttribute="bottom" constant="8" symbolic="YES" id="ivT-NK-ETf"/>
                             <constraint firstItem="PfQ-GM-Zpn" firstAttribute="trailing" secondItem="cMx-JU-azk" secondAttribute="trailing" constant="16" id="kfi-QR-AxB"/>
                             <constraint firstItem="cMx-JU-azk" firstAttribute="leading" secondItem="PfQ-GM-Zpn" secondAttribute="leading" constant="16" id="ms6-0I-yPg"/>
+                            <constraint firstAttribute="bottom" secondItem="cLV-48-KDd" secondAttribute="bottom" id="xKM-1T-43O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PfQ-GM-Zpn"/>
                     </view>
                     <navigationItem key="navigationItem" title="Now Playing" id="7qS-pk-0Op"/>
                     <connections>
                         <outlet property="bgCover" destination="Uyu-Wp-tUQ" id="p3H-7k-d1y"/>
+                        <outlet property="lblCopyrights" destination="Vxu-zD-VL4" id="fKY-4g-ztf"/>
                         <outlet property="lblCurrentTime" destination="bls-lz-jQZ" id="pOA-n6-B5f"/>
                         <outlet property="lblFullTime" destination="OqB-Ml-weo" id="JRD-rp-hDF"/>
                         <outlet property="playerController" destination="cMx-JU-azk" id="c3R-p9-viO"/>
@@ -127,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zK-yj-1Mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984.8" y="24.7376311844078"/>
+            <point key="canvasLocation" x="1981.5999999999999" y="22.906403940886701"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2fr-28-hNY">

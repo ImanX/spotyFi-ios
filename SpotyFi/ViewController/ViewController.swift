@@ -37,18 +37,7 @@ class ViewController: UIBaseViewController{
     @IBOutlet weak var edtURL: UITextField!
     
     
-    
-    
-    
-//    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if textField.returnKeyType == .search , (textField.text?.isSpotifyURL())!{
-//            self.view.appearLoading();
-//            let request = RequestMusic(url: textField.text!);
-//            UIBaseViewController.socket.send(string: request.toJSON().description);
-//        }
-//        return true
-//    }
-    
+
     override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard textField.returnKeyType == .search , (textField.text?.isSpotifyURL())! else{
             return super.textFieldShouldReturn(textField);
@@ -62,7 +51,7 @@ class ViewController: UIBaseViewController{
     
         self.appearLoading();
         let request = RequestMusic(url: url.description);
-        UIBaseViewController.socket.send(string: request.toJSON().description);
+        SOCKET.send(string: request.toJSON().description);
         
         return super.textFieldShouldReturn(textField);
 
@@ -88,11 +77,13 @@ class ViewController: UIBaseViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         if PLAYER.isPlaying{
-            let indicator = ESTMusicIndicatorView.init(frame: CGRect.zero)
-            indicator.sizeToFit();
+            let indicator = ESTMusicIndicatorView.init(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 200, height: 200)));
+           // indicator.sizeToFit();
             indicator.state = .playing;
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator);
-            navigationItem.rightBarButtonItem?.action = #selector(openUIPlayerViewController);
+            navigationItem.rightBarButtonItem?.customView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openUIPlayerViewController)))
+
+            
         }
         
     }
@@ -103,13 +94,15 @@ class ViewController: UIBaseViewController{
     }
     
     @objc func openUIPlayerViewController() {
-        
+        UIPlayerViewController.represent();
+
     }
 
-    override func didReceiveMessage(data: String) {        
+    override func didReceiveMessage(data: String) {
         let music = Music(data: data);
         self.disappearLoading();
         UIPlayerViewController.start(music: music);
+        
     }
     
 
