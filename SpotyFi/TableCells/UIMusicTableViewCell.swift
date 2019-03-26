@@ -21,10 +21,13 @@ class UIMusicTableViewCell: UITableViewCell {
         
     }
     
+    
+    public var completionDidSelect:(()->Void)?
     @IBOutlet weak var imgAction: UIImageView!
     @IBOutlet weak var lblArtist: UILabel!
     @IBOutlet weak var lblSong: UILabel!
     @IBOutlet weak var imgArtwork: UIImageView!
+    
     
     
     override func awakeFromNib() {
@@ -39,7 +42,9 @@ class UIMusicTableViewCell: UITableViewCell {
     
   
     override func didSelect() {
-        UIPlayerViewController.start(music: item);
+        if let completion = completionDidSelect{
+            completion();
+        }
     }
     
 

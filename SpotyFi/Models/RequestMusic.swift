@@ -16,7 +16,7 @@ class RequestMusic: Model {
     
     init(url:String) {
         super.init();
-        json["song"] = [url];
+        json["body"] = [url];
         json["id"].string = uuid;
         json["type"] = "song";
     }

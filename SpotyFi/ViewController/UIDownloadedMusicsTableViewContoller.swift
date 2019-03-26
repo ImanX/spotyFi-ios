@@ -31,6 +31,9 @@ class UIDownloadedMusicsTableViewContoller: UIBaseViewController , UITableViewDe
         
         cell.item = musics[indexPath.row - 1];
         cell.backgroundColor = .clear;
+        cell.completionDidSelect = {
+            UIPlayerViewController.start(musics: self.musics , indexOf: indexPath.row - 1);
+        }
         
         return  cell;
     }

@@ -14,13 +14,16 @@ import Digger
 import XLActionController
 
 class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
+  
+    
 
     
   
     
     
     
-    private var music:Music?;
+    private var currentMusic:Music?;
+    private var musics:[Music]?;
     private var isDownloadedFile = false;
     @IBOutlet weak var playerKit: UIPlayerKit!
     @IBOutlet weak var bgCover: UIImageView!
@@ -36,9 +39,13 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
     
     
     @discardableResult
-    public class func start(music:Music?) -> UIPlayerViewController{
+    public class func start(musics:[Music],indexOf:Int = 0) -> UIPlayerViewController{
         let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(type: UIPlayerViewController.self);
-        vc.music = music;
+        vc.musics = musics
+        vc.currentMusic = musics[indexOf];
+
+        
+        
         if let navigationViewController = UIApplication.topViewController as? UINavigationController{
             navigationViewController.pushViewController(vc, animated: true);
         }
@@ -54,6 +61,9 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         parentVC.pushViewController(playerVC, animated: true);
     }
     
+    func didFinish() {
+        playerController.forwardClick();
+    }
     
     func didStart() {
         
@@ -68,7 +78,7 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
     }
     
     func didLoading() {
-        appearLoading();
+       // appearLoading();
     }
     
     func didReadyToPlay() {
@@ -80,8 +90,6 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         
         let fullSecond = Int(seconds);
         self.lblFullTime.text = NSString(format: "%2d:%02d", fullSecond/60, fullSecond%60) as String;
-        
-        
         
     }
     
@@ -103,48 +111,19 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         super.viewWillAppear(animated);
         PLAYER_VIEWCONTROLLER = self;
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         
         
-        guard let song = music?.metadata?.name else{
-            return
+     
+        makeToPlayMusic(music: self.currentMusic!);
+        
+        if musics?.count == 1 {
+            playerController.imgPervious.isHidden = true;
+            playerController.imgForward.isHidden = true;
         }
-        
-        
-        isDownloadedFile = PathManager.shared.hasExistFile(file: song)
-        playerKit.lblSongName.text = song;
-
-        
-        guard let url = URL(string: (music?.downloadURL)!) else {
-            return;
-        }
-        
-        if let artwork = music?.metadata?.image?.first{
-            playerKit.imgArtwork.loadImage(url: artwork);
-            bgCover.loadImage(url: artwork);
-            bgCover.makeBlur();
-        }else if let artwork = music?.metadata?.photo {
-            playerKit.imgArtwork.image = artwork;
-            bgCover.image = artwork;
-            bgCover.makeBlur();
-        }
-        
-        if let artist = music?.metadata?.artists?.first?.name{
-            playerKit.lblArtist.text = artist;
-        }
-        
-        if let copyright = music?.metadata?.copyright{
-            lblCopyrights.text = copyright;
-        }
-      
-
-        
-        PLAYER.delegate = self;
-        PLAYER.makeNewPlay(url: url);
-        PLAYER.play();
-        
-        
         
 
         playerController.compeletionPlayOrPause = {
@@ -158,6 +137,23 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         }
         
     
+        playerController.compeletionPervious = {
+            var index = self.musics!.firstIndex{$0 === self.currentMusic}! - 1;
+            if index <= -1  {
+                index = ((self.musics?.endIndex)! - 1);
+            }
+            
+            self.makeToPlayMusic(music: self.musics![index]);
+            
+        }
+        
+        playerController.compeletionForward = {
+            var index = self.musics!.firstIndex{$0 === self.currentMusic}! + 1;
+            if index >= ((self.musics?.count)!){
+                index = (self.musics?.startIndex)!;
+            }
+            self.makeToPlayMusic(music: self.musics![index]);
+        }
         
         
         PLAYER.avPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: .main) { (timr) in
@@ -167,6 +163,58 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
             let leftSecond = Int(time)
             self.lblCurrentTime.text = NSString(format: "%2d:%02d", leftSecond/60, leftSecond%60) as String;
         }
+        
+    }
+    
+    
+    
+    func makeToPlayMusic(music:Music) {
+        
+        slider.value = 0.0;
+        
+        guard let song = music.metadata?.name else{
+            return
+        }
+        
+        
+        isDownloadedFile = PathManager.shared.hasExistFile(file: song)
+        playerKit.lblSongName.text = song;
+        
+        
+        guard let url = URL(string: (music.downloadURL)!) else {
+            return;
+        }
+        
+        
+        if let artwork = music.metadata?.image?.first{
+            playerKit.imgArtwork.loadImage(url: artwork);
+            bgCover.loadImage(url: artwork);
+            bgCover.makeBlur();
+        }else if let artwork = music.metadata?.photo {
+            playerKit.imgArtwork.image = artwork;
+            bgCover.image = artwork;
+            bgCover.makeBlur();
+        }
+        
+        if let artist = music.metadata?.artists?.first?.name{
+            playerKit.lblArtist.text = artist;
+        }
+        
+        if let copyright = music.metadata?.copyright{
+            lblCopyrights.text = copyright;
+        }
+        
+        
+        let seekColor = playerKit.imgArtwork.getPixelColor(pos: CGPoint(x: 10, y: 10));
+        slider.minimumTrackTintColor = seekColor;
+        
+        
+        
+        self.currentMusic = music;
+        
+        PLAYER.delegate = self;
+        PLAYER.makeNewPlay(url: url);
+        PLAYER.play();
         
     }
     
@@ -184,8 +232,8 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
     
     @IBAction func openAction() {
         
-        let song = music?.metadata?.name;
-        let artist = music?.metadata?.artists?.first?.name;
+        let song = currentMusic?.metadata?.name;
+        let artist = currentMusic?.metadata?.artists?.first?.name;
         let artwork = playerKit.imgArtwork.image;
         
         let actionController = SpotifyActionController()
@@ -212,7 +260,7 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         }
         
         
-        guard let safeNull = music?.downloadURL, let url = URL(string: safeNull)  else {
+        guard let safeNull = currentMusic?.downloadURL, let url = URL(string: safeNull)  else {
             return;
         }
         
@@ -220,7 +268,7 @@ class UIPlayerViewController: UIBaseViewController, PlayerDelegate{
         
         Downloader().enqueue(url: url) { (percents, url, error) in
             if (url != nil){
-               PathManager.shared.writeFile(at: url!, name: (self.music?.metadata?.name)!)
+               PathManager.shared.writeFile(at: url!, name: (self.currentMusic?.metadata?.name)!)
                 return;
             }
             

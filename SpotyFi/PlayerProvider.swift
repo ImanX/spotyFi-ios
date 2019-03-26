@@ -30,7 +30,8 @@ import UIKit
     func makeNewPlay(url:URL) {
         self.avPlayer = AVPlayer(url: url);
         self.avPlayer.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
-//        self.avPlayer.addObserver(self, forKeyPath: "rate", options: NSKeyValueObservingOptions.new, context: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didFinishMusic), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+
 
         if let del = delegate {
             del.didLoading();
@@ -52,6 +53,13 @@ import UIKit
     }
     
 
+    
+    @objc func didFinishMusic(){
+        if let del = delegate{
+            del.didFinish();
+        }
+        
+    }
     
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -83,6 +91,7 @@ protocol PlayerDelegate {
     func didPlay();
     func didPause();
     func didStart();
+    func didFinish();
     func didLoading();
     func didReadyToPlay();
     func didFailureToPlay();

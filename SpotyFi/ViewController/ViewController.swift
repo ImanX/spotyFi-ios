@@ -101,7 +101,7 @@ class ViewController: UIBaseViewController{
     override func didReceiveMessage(data: String) {
         let music = Music(data: data);
         self.disappearLoading();
-        UIPlayerViewController.start(music: music);
+        UIPlayerViewController.start(musics: [music]);
         
     }
     

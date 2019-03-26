@@ -14,7 +14,7 @@ import AVFoundation
 internal var PLAYER_VIEWCONTROLLER:UIPlayerViewController!;
 internal var PLAYER = PlayerProvider.shared;
 internal var SOCKET:Socketer!;
-public let SOCKET_URL = "http://46.101.30.103:8089/ws";
+public let SOCKET_URL = "http://46.101.30.103:8080/ws";
 public let DOWNLOAD_URL = "http://46.101.30.103:8080/";
 public let DOWNLOADED_DIR = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mp3Downloaded");
 
@@ -133,13 +133,7 @@ extension UIImageView{
     }
     
     func makeBlur() {
-//        let imageToBlur = CIImage(image: self.image!)
-//        let blurfilter = CIFilter(name: "CIGaussianBlur")
-//        blurfilter!.setValue(imageToBlur, forKey: "inputImage")
-//        let resultImage = blurfilter!.value(forKey: "outputImage") as! CIImage
-//        let blurredImage = UIImage(ciImage: resultImage)
-//        self.image = blurredImage
-        
+
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds;
@@ -159,6 +153,28 @@ extension UIImageView{
             self.image = self.image?.withRenderingMode(.alwaysTemplate)
             self.tintColor = newValue;
         }
+    }
+    
+    func getPixelColor(pos: CGPoint) -> UIColor {
+        
+        guard let pixelData = self.image?.cgImage!.dataProvider!.data else{
+            return UIColor.white;
+        }
+        
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        
+        let pixelInfo: Int = ((Int(self.bounds.width) * Int(pos.y)) + Int(pos.x)) * 4
+        
+        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+        let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
+        let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
+        let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
+        
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
+    
+    func  getCenterOfPixelColor() -> UIColor {
+        return getPixelColor(pos: CGPoint(x: self.bounds.midX, y: self.bounds.midY))
     }
     
 }

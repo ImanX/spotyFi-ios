@@ -16,10 +16,10 @@ class Music: Model {
     
     init(data:String) {
         super.init();
-        json = JSON(parseJSON: data);
-        let url = json["uri"].stringValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        json = JSON(parseJSON: data)["body"];
+        let url = json["file_path"].stringValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         self.downloadURL = "\(DOWNLOAD_URL)\(url!)"
-        self.metadata = Metadata(json: json["meta_tags"]);
+        self.metadata = Metadata(json: json);
     }
     
     override init() {
@@ -63,7 +63,7 @@ class Metadata{
        
     
         resolveImages(json:  json["album"]["images"]);
-        resolveArtists(json: json["album"]["artists"]);
+        resolveArtists(json: json["artists"]);
     }
     
     func resolveArtists(json:JSON)   {
