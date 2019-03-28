@@ -139,35 +139,7 @@ class UIPlayerViewController: UIBaseViewController{
         }
     }
     
-    @IBAction func openAction() {
-        
-        let song = currentMusic!.metadata?.name;
-        let artist = currentMusic!.metadata?.artists?.first?.name;
-        let actionController = SpotifyActionController()
-        actionController.headerData = SpotifyHeaderData(title:song! ,
-                                                        subtitle: artist!,
-                                                        image: playerKit.imgArtwork.image!);
-        let downloadAction = Action(ActionData(title: "Download", image: #imageLiteral(resourceName: "download")), style: .default) { (action) in
-            self.download();
-        }
-        
-        let shareAction = Action(ActionData(title: "Share", image: #imageLiteral(resourceName: "sharer")), style: .default) { (action) in
-            let url = URL(string: (self.currentMusic?.downloadURL)!);
-            let a = UIActivityViewController(activityItems: [url], applicationActivities: nil);
-            
-            self.present(a,
-                    animated: true,
-                    completion: nil)
-        }
-        
-        if !(currentMusic?.metadata?.isLocal)!{
-            actionController.addAction(downloadAction);
-        }else{
-            actionController.addAction(shareAction);
-        }
-        present(actionController, animated: true, completion: nil);
-    }
-    
+   
     
     
 }
@@ -312,4 +284,37 @@ extension UIPlayerViewController : PlayerDelegate{
     }
     
 }
+
+extension UIPlayerViewController{
+    @IBAction func openAction() {
+        
+        let song = currentMusic?.metadata?.name;
+        let artist = currentMusic?.metadata?.artists?.first?.name;
+        let actionController = SpotifyActionController()
+        actionController.headerData = SpotifyHeaderData(title:song! ,
+                                                        subtitle: artist!,
+                                                        image: playerKit.imgArtwork.image!);
+        let downloadAction = Action(ActionData(title: "Download", image: #imageLiteral(resourceName: "download")), style: .default) { (action) in
+            self.download();
+        }
+        
+        let shareAction = Action(ActionData(title: "Share", image: #imageLiteral(resourceName: "sharer")), style: .default) { (action) in
+            let url = URL(string: (self.currentMusic?.downloadURL)!);
+            let a = UIActivityViewController(activityItems: [url], applicationActivities: nil);
+            
+            self.present(a,
+                         animated: true,
+                         completion: nil)
+        }
+        
+        if !(currentMusic?.metadata?.isLocal)!{
+            actionController.addAction(downloadAction);
+        }else{
+            actionController.addAction(shareAction);
+        }
+        present(actionController, animated: true, completion: nil);
+    }
+    
+}
+
 
