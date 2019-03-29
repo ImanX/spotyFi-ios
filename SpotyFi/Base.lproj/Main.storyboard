@@ -291,7 +291,7 @@
                                                     <rect key="frame" x="1" y="1" width="350" height="98"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bc-60-fuA">
-                                                            <rect key="frame" x="94" y="38" width="45" height="20.333333333333329"/>
+                                                            <rect key="frame" x="94" y="38" width="256" height="20"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -304,7 +304,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-p0-1Cl">
-                                                            <rect key="frame" x="94" y="61" width="29" height="14"/>
+                                                            <rect key="frame" x="94" y="60" width="29" height="14"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -316,6 +316,8 @@
                                                         <constraint firstItem="9bc-60-fuA" firstAttribute="top" secondItem="jhb-kB-vXO" secondAttribute="top" constant="38" id="PU2-Cr-oWi"/>
                                                         <constraint firstItem="toD-I6-cPW" firstAttribute="leading" secondItem="jhb-kB-vXO" secondAttribute="leading" constant="16" id="RZ7-AJ-TnJ"/>
                                                         <constraint firstItem="9bc-60-fuA" firstAttribute="leading" secondItem="toD-I6-cPW" secondAttribute="trailing" constant="8" id="X83-Ej-El5"/>
+                                                        <constraint firstItem="B3j-p0-1Cl" firstAttribute="leading" secondItem="9bc-60-fuA" secondAttribute="leading" id="sRG-sb-VuG"/>
+                                                        <constraint firstAttribute="trailing" secondItem="9bc-60-fuA" secondAttribute="trailing" id="uXf-Sp-V85"/>
                                                         <constraint firstItem="B3j-p0-1Cl" firstAttribute="top" secondItem="9bc-60-fuA" secondAttribute="bottom" constant="2.6666666666666714" id="vx7-b0-lJy"/>
                                                     </constraints>
                                                 </view>
