@@ -217,7 +217,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKE-nV-Luj" customClass="UIContainerView" customModule="SpotyFi" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <connections>
                                     <segue destination="7se-lI-Pwx" kind="embed" id="0dw-5q-YLM"/>
                                 </connections>
@@ -225,10 +225,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NKE-nV-Luj" firstAttribute="trailing" secondItem="ic4-yY-MZe" secondAttribute="trailing" id="Jdf-Af-zbE"/>
-                            <constraint firstItem="NKE-nV-Luj" firstAttribute="leading" secondItem="ic4-yY-MZe" secondAttribute="leading" id="VlS-ZX-NFM"/>
-                            <constraint firstItem="NKE-nV-Luj" firstAttribute="top" secondItem="Xhd-Nt-QoU" secondAttribute="top" id="lzr-0t-Pbz"/>
-                            <constraint firstAttribute="bottom" secondItem="NKE-nV-Luj" secondAttribute="bottom" id="v5e-yh-kMo"/>
+                            <constraint firstItem="NKE-nV-Luj" firstAttribute="top" secondItem="Xhd-Nt-QoU" secondAttribute="top" id="47q-J9-jxn"/>
+                            <constraint firstAttribute="trailing" secondItem="NKE-nV-Luj" secondAttribute="trailing" id="99J-Q5-yQ6"/>
+                            <constraint firstItem="NKE-nV-Luj" firstAttribute="bottom" secondItem="ic4-yY-MZe" secondAttribute="bottom" id="U3e-7u-Wii"/>
+                            <constraint firstItem="NKE-nV-Luj" firstAttribute="leading" secondItem="Xhd-Nt-QoU" secondAttribute="leading" id="Ww9-JA-GIl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ic4-yY-MZe"/>
                     </view>
@@ -246,11 +246,11 @@
             <objects>
                 <viewController storyboardIdentifier="UIEmptyStateViewController" id="7se-lI-Pwx" customClass="UIEmptyStateViewController" customModule="SpotyFi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pbe-rk-ahu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Downloaded Song" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-Jf-hBh">
-                                <rect key="frame" x="124" y="357.66666666666669" width="166" height="21"/>
+                                <rect key="frame" x="124" y="333" width="166" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

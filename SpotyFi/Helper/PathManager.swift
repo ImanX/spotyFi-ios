@@ -75,4 +75,17 @@ class PathManager {
             return nil;
         }
     }
+    
+    func delete(at path:String) -> Bool {
+        guard let url = URL(string: path) else{
+            return false;
+        }
+        
+        do{
+           try fileManager.removeItem(at: url);
+            return true;
+        }catch{
+            return false;
+        }
+    }
 }
