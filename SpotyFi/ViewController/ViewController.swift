@@ -11,30 +11,36 @@ import Starscream
 import FRadioPlayer
 import SwiftyJSON;
 import ESTMusicIndicator
-class ViewController: UIBaseViewController{
+class ViewController: UIBaseViewController , UITableViewDataSource , UITableViewDelegate{
+    
 
     
     
-//    private func setupNowPlayingInfoCenter() {
-//        UIApplication.shared.beginReceivingRemoteControlEvents();
-//        MPRemoteCommandCenter.shared().playCommand.addTarget {event in
-//          //  self.updateNowPlayingInfoCenter()
-//            return .success
-//        }
-//        MPRemoteCommandCenter.shared().pauseCommand.addTarget {event in
-//            return .success;
-//        }
-//        MPRemoteCommandCenter.shared().nextTrackCommand.addTarget {event in
-//            return .success;
-//
-//        }
-//        MPRemoteCommandCenter.shared().previousTrackCommand.addTarget {event in
-//            return .success;
-//
-//        }
-//    }
+    static let COUTN_OF_CELL = 3;
     
-    @IBOutlet weak var edtURL: UITextField!
+    
+    @IBOutlet weak var tableView: UITableView!
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ViewController.COUTN_OF_CELL;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UIQueryTableViewCell;
+            cell.completionDidLoading = {
+                self.appearLoading();
+                self.closeSoftKeyboard();
+            }
+            return cell;
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell2") as! UICollectionTableViewCell;
+        return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (indexPath.row == 0) ? CGFloat(200) : CGFloat(220);
+    }
     
     
 
@@ -52,7 +58,6 @@ class ViewController: UIBaseViewController{
         self.appearLoading();
         let request = RequestMusic(url: url.description);
         SOCKET.send(string: request.toJSON().description);
-        
         return super.textFieldShouldReturn(textField);
 
     }
@@ -60,12 +65,19 @@ class ViewController: UIBaseViewController{
 
     
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
+    }
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.edtURL.delegate = self;
+        self.tableView.register(UINib(nibName: "UIQueryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell");
+        self.tableView.register(UINib(nibName: "UICollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell2");
+
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
     }
    
     
@@ -111,6 +123,26 @@ class ViewController: UIBaseViewController{
         
     }
     
-
+    
+    //    private func setupNowPlayingInfoCenter() {
+    //        UIApplication.shared.beginReceivingRemoteControlEvents();
+    //        MPRemoteCommandCenter.shared().playCommand.addTarget {event in
+    //          //  self.updateNowPlayingInfoCenter()
+    //            return .success
+    //        }
+    //        MPRemoteCommandCenter.shared().pauseCommand.addTarget {event in
+    //            return .success;
+    //        }
+    //        MPRemoteCommandCenter.shared().nextTrackCommand.addTarget {event in
+    //            return .success;
+    //
+    //        }
+    //        MPRemoteCommandCenter.shared().previousTrackCommand.addTarget {event in
+    //            return .success;
+    //
+    //        }
+    //    }
+    
+    
 }
 

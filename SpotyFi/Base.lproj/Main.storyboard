@@ -18,18 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://open.spotify.com/track/06KTcf9q6ef0rEYPgjOKl3?si=rhprNG8dQFSDxp38h2RGwQ" borderStyle="roundedRect" placeholder="Paste spotify URL here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cqf-1L-9Cr">
-                                <rect key="frame" x="16" y="218" width="383" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search" textContentType="url"/>
-                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8GH-yo-USN">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qw5-ja-50D">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qw5-ja-50D" id="fF1-1i-fKi">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Cqf-1L-9Cr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2b9-F7-ogD"/>
-                            <constraint firstItem="Cqf-1L-9Cr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="154" id="7ZD-FA-WBp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cqf-1L-9Cr" secondAttribute="trailing" constant="15" id="UFC-jg-j00"/>
+                            <constraint firstItem="8GH-yo-USN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="L6N-Pv-2ig"/>
+                            <constraint firstItem="8GH-yo-USN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="as7-MD-nVs"/>
+                            <constraint firstItem="8GH-yo-USN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b0V-1m-lLu"/>
+                            <constraint firstItem="8GH-yo-USN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dDX-Iv-Que"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,13 +47,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="nVE-YT-irj"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="edtURL" destination="Cqf-1L-9Cr" id="3ey-XQ-bT4"/>
+                        <outlet property="tableView" destination="8GH-yo-USN" id="9og-Gg-WxX"/>
                         <segue destination="PbB-2T-nOI" kind="show" id="iFb-WG-6aN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="-294"/>
+            <point key="canvasLocation" x="1960.8695652173915" y="-294.29347826086956"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="JLb-6t-W97">
