@@ -11,34 +11,46 @@ import UIKit
 class UIQueryTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var edtQuery: UITextField!
-    public var completionDidLoading:(()->Void)?
-    
+    public var completionDidLoading:(()->Void)!;
+    public var completionDidEnd:(()->Void)!
     
     override func awakeFromNib() {
         super.awakeFromNib();
         self.edtQuery.delegate = self;
+      
     }
     
+
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard textField.returnKeyType == .go , (textField.text?.isSpotifyURL())! else{
+      
+        guard textField.returnKeyType == .go  else{
             return false;
         }
         
-        guard let url = URL(string: textField.text!) else {
-            return false;
+        let queryValue = textField.text;
+        completionDidLoading();
+    
+        if (queryValue!.isSpotifyURL()){
+            let request = RequestMusic(url: queryValue!.description);
+            SOCKET.send(string: request.toJSON().description);
+            return true;
         }
         
         
-        
-        
-        if let comp = completionDidLoading {
-            comp();
+        let queryRequest = QueryRequest(query: queryValue!);
+        let controller = RequestController<Query>(request: queryRequest);
+        controller.apply(compeletionResult: { (query) in
+            UIQueryResultViewController.start(query: query, caption: queryValue!);
+            self.completionDidEnd();
+        }) { (error) in
+            self.completionDidEnd();
         }
         
-        let request = RequestMusic(url: url.description);
-        SOCKET.send(string: request.toJSON().description);
+        
+       
+       
         
         return true;
         

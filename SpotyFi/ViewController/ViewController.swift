@@ -26,40 +26,37 @@ class ViewController: UIBaseViewController , UITableViewDataSource , UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UIQueryTableViewCell;
+            let cell = tableView.dequeueReusableCell(withIdentifier: "QueryCell") as! UIQueryTableViewCell;
             cell.completionDidLoading = {
                 self.appearLoading();
                 self.closeSoftKeyboard();
             }
+            cell.completionDidEnd = {
+                self.disappearLoading();
+            }
             return cell;
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell2") as! UICollectionTableViewCell;
+        
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell") as! UICollectionTableViewCell;
+        cell.items = PathManager.shared.getFilesURLs();
+        cell.items = MetadataResolver().getMetas(urls: PathManager.shared.getFilesURLs()!);
+        cell.setIndicatorMode(isHidden: true);
+        cell.compeletionItemCell = { (item , cellHit)  -> UIHitCollectionViewCell in
+            let music = item as? Music;
+            cellHit.imgArtwork.image = music?.metadata?.photo;
+            cellHit.lblSong.text = music?.metadata?.name;
+            cellHit.lblArtist.text = music?.metadata?.artists?.first?.name;
+            return cellHit;
+        }
         return cell;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (indexPath.row == 0) ? CGFloat(200) : CGFloat(220);
-    }
-    
-    
-
-    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard textField.returnKeyType == .search , (textField.text?.isSpotifyURL())! else{
-            return super.textFieldShouldReturn(textField);
-        }
-        
-        guard let url = URL(string: textField.text!) else {
-            return super.textFieldShouldReturn(textField);
-        }
-        
-        
-    
-        self.appearLoading();
-        let request = RequestMusic(url: url.description);
-        SOCKET.send(string: request.toJSON().description);
-        return super.textFieldShouldReturn(textField);
-
     }
     
 
@@ -73,8 +70,8 @@ class ViewController: UIBaseViewController , UITableViewDataSource , UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        self.tableView.register(UINib(nibName: "UIQueryTableViewCell", bundle: nil), forCellReuseIdentifier: "cell");
-        self.tableView.register(UINib(nibName: "UICollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell2");
+        self.tableView.register(UINib(nibName: "UIQueryTableViewCell", bundle: nil), forCellReuseIdentifier: "QueryCell");
+        self.tableView.register(UINib(nibName: "UICollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "CollectionCell");
 
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
@@ -97,8 +94,7 @@ class ViewController: UIBaseViewController , UITableViewDataSource , UITableView
 //
 //        }
         
-        
-        
+
     }
     
     override func didConnect() {

@@ -48,6 +48,15 @@
 		7EFE11DA224E96C3006EAAA2 /* UICollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EFE11D8224E96C3006EAAA2 /* UICollectionTableViewCell.xib */; };
 		7EFE11DD224EA050006EAAA2 /* UIHitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11DB224EA050006EAAA2 /* UIHitCollectionViewCell.swift */; };
 		7EFE11E0224EA249006EAAA2 /* UIHitCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EFE11DF224EA249006EAAA2 /* UIHitCollectionCell.xib */; };
+		7EFE11E22253605B006EAAA2 /* UIQueryResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11E12253605B006EAAA2 /* UIQueryResultViewController.swift */; };
+		7EFE11E52253609E006EAAA2 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11E42253609E006EAAA2 /* RequestController.swift */; };
+		7EFE11E8225360EB006EAAA2 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11E7225360EB006EAAA2 /* Request.swift */; };
+		7EFE11EA2254C693006EAAA2 /* QueryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11E92254C693006EAAA2 /* QueryRequest.swift */; };
+		7EFE11EC22551B09006EAAA2 /* Artistx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11EB22551B09006EAAA2 /* Artistx.swift */; };
+		7EFE11EE22551C71006EAAA2 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11ED22551C71006EAAA2 /* Picture.swift */; };
+		7EFE11F022551D08006EAAA2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11EF22551D08006EAAA2 /* Album.swift */; };
+		7EFE11F222551F26006EAAA2 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11F122551F26006EAAA2 /* Track.swift */; };
+		7EFE11F422552E47006EAAA2 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE11F322552E47006EAAA2 /* Query.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +102,15 @@
 		7EFE11D8224E96C3006EAAA2 /* UICollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICollectionTableViewCell.xib; sourceTree = "<group>"; };
 		7EFE11DB224EA050006EAAA2 /* UIHitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHitCollectionViewCell.swift; sourceTree = "<group>"; };
 		7EFE11DF224EA249006EAAA2 /* UIHitCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIHitCollectionCell.xib; sourceTree = "<group>"; };
+		7EFE11E12253605B006EAAA2 /* UIQueryResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIQueryResultViewController.swift; sourceTree = "<group>"; };
+		7EFE11E42253609E006EAAA2 /* RequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
+		7EFE11E7225360EB006EAAA2 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		7EFE11E92254C693006EAAA2 /* QueryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryRequest.swift; sourceTree = "<group>"; };
+		7EFE11EB22551B09006EAAA2 /* Artistx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artistx.swift; sourceTree = "<group>"; };
+		7EFE11ED22551C71006EAAA2 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		7EFE11EF22551D08006EAAA2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		7EFE11F122551F26006EAAA2 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		7EFE11F322552E47006EAAA2 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		9709F21D96340FB09DFDB780 /* Pods-SpotyFi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotyFi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi.debug.xcconfig"; sourceTree = "<group>"; };
 		BCABD8A0131963E93E668110 /* Pods-SpotyFi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotyFi.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotyFi/Pods-SpotyFi.release.xcconfig"; sourceTree = "<group>"; };
 		DF23D6D993C672BBB78AD513 /* Pods_SpotyFi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotyFi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +150,7 @@
 		7E58ED4F22342624005BE379 /* SpotyFi */ = {
 			isa = PBXGroup;
 			children = (
+				7EFE11E322536078006EAAA2 /* Controlller */,
 				7E8EEB65224A741000C7B2CF /* Helper */,
 				7EBCA3DE224A2CF6005091E6 /* TableCells */,
 				7E5DCF9B22493C7D0020895E /* Downloader */,
@@ -158,6 +177,7 @@
 				7E170210224A11E500E276BF /* UIRecentlyDownloadViewController.swift */,
 				7EBCA3D8224A1F43005091E6 /* UIEmptyStateViewController.swift */,
 				7EBCA3DA224A1FAE005091E6 /* UIDownloadedMusicsTableViewContoller.swift */,
+				7EFE11E12253605B006EAAA2 /* UIQueryResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -215,6 +235,11 @@
 				7E88043A2246632300EA5630 /* Model.swift */,
 				7E88043C224665A200EA5630 /* RequestMusic.swift */,
 				7E88043E224667E900EA5630 /* Music.swift */,
+				7EFE11EB22551B09006EAAA2 /* Artistx.swift */,
+				7EFE11ED22551C71006EAAA2 /* Picture.swift */,
+				7EFE11EF22551D08006EAAA2 /* Album.swift */,
+				7EFE11F122551F26006EAAA2 /* Track.swift */,
+				7EFE11F322552E47006EAAA2 /* Query.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +279,24 @@
 				7EFE11DF224EA249006EAAA2 /* UIHitCollectionCell.xib */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		7EFE11E322536078006EAAA2 /* Controlller */ = {
+			isa = PBXGroup;
+			children = (
+				7EFE11E6225360D6006EAAA2 /* API */,
+				7EFE11E42253609E006EAAA2 /* RequestController.swift */,
+			);
+			path = Controlller;
+			sourceTree = "<group>";
+		};
+		7EFE11E6225360D6006EAAA2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7EFE11E7225360EB006EAAA2 /* Request.swift */,
+				7EFE11E92254C693006EAAA2 /* QueryRequest.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		C964CE1B7D5D0284052CD584 /* Frameworks */ = {
@@ -436,9 +479,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E5DCFA122496C720020895E /* PathManager.swift in Sources */,
+				7EFE11EE22551C71006EAAA2 /* Picture.swift in Sources */,
 				7E58ED5322342624005BE379 /* ViewController.swift in Sources */,
+				7EFE11EA2254C693006EAAA2 /* QueryRequest.swift in Sources */,
 				7E88043F224667E900EA5630 /* Music.swift in Sources */,
 				7E6F2CF12247C3CA00E58E72 /* PlayerProvider.swift in Sources */,
+				7EFE11E8225360EB006EAAA2 /* Request.swift in Sources */,
+				7EFE11F422552E47006EAAA2 /* Query.swift in Sources */,
 				7E58ED6C223434EF005BE379 /* RESOURCE.swift in Sources */,
 				7E58ED6E223435B5005BE379 /* Socketer.swift in Sources */,
 				7E8EEB6C224A793500C7B2CF /* MultipleMusicPlayer.swift in Sources */,
@@ -446,12 +493,16 @@
 				7E170211224A11E500E276BF /* UIRecentlyDownloadViewController.swift in Sources */,
 				7EBCA3D6224A1D22005091E6 /* UIContainerView.swift in Sources */,
 				7E88043D224665A200EA5630 /* RequestMusic.swift in Sources */,
+				7EFE11EC22551B09006EAAA2 /* Artistx.swift in Sources */,
 				7EBCA3D9224A1F43005091E6 /* UIEmptyStateViewController.swift in Sources */,
 				7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */,
+				7EFE11F022551D08006EAAA2 /* Album.swift in Sources */,
 				7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */,
 				7E5495CD223580DB00634042 /* Banner.swift in Sources */,
+				7EFE11E22253605B006EAAA2 /* UIQueryResultViewController.swift in Sources */,
 				7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */,
 				7E5DCF9F224946100020895E /* Downloader.swift in Sources */,
+				7EFE11F222551F26006EAAA2 /* Track.swift in Sources */,
 				7E88043822464FED00EA5630 /* UIPlayerViewController.swift in Sources */,
 				7E8EEB68224A770100C7B2CF /* IPlayerDelegate.swift in Sources */,
 				7EBCA3DB224A1FAE005091E6 /* UIDownloadedMusicsTableViewContoller.swift in Sources */,
@@ -465,6 +516,7 @@
 				7E6F2CEC224794DD00E58E72 /* UIPlayerControlKit.swift in Sources */,
 				7EBCA3E0224A2D29005091E6 /* UIMusicTableViewCell.swift in Sources */,
 				7EFE11D9224E96C3006EAAA2 /* UICollectionTableViewCell.swift in Sources */,
+				7EFE11E52253609E006EAAA2 /* RequestController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,8 @@ class UICollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
     
     
     
-    private var musics:[Music]?;
+    public var items:[Any]!;
+    public var compeletionItemCell:((_ item:Any , _ cell:UIHitCollectionViewCell) -> UIHitCollectionViewCell)!;
     @IBOutlet weak var lblHeader: UILabel!
     @IBOutlet weak var lblNoHistory: UILabel!
 
@@ -20,16 +21,18 @@ class UICollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return musics?.count ?? 0;
+        return items?.count ?? 0;
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UIHitCollectionViewCell;
-        let item = musics![indexPath.row];
-        cell.imgArtwork.image = item.metadata?.photo;
-        cell.lblSong.text  = item.metadata?.name;
-        cell.lblArtist.text = item.metadata?.artists?.first?.name;
-        return cell;
+        let item = items[indexPath.row];
+        return compeletionItemCell(item , cell);
+    }
+    
+    func setIndicatorMode(isHidden:Bool)  {
+                    self.indicator.isHidden = isHidden;
+                    self.collection.isHidden = !isHidden;
     }
     
     
@@ -44,18 +47,18 @@ class UICollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
         self.collection.register(UINib(nibName: "UIHitCollectionCell", bundle: nil), forCellWithReuseIdentifier: "cell");
         self.collection.delegate = self;
         self.collection.dataSource = self;
-        self.lblHeader.text = "Recently Downloaded";
-        
-        if let urls = PathManager.shared.getFilesURLs(){
-            self.musics = MetadataResolver().getMetas(urls: urls);
-            self.collection.reloadData();
-            self.indicator.isHidden = true;
-            self.collection.isHidden = false;
-        }else{
-            self.indicator.isHidden = true;
-            self.lblNoHistory.isHidden = false;
-
-        }
+       // self.lblHeader.text = "Recently Downloaded";
+//
+//        if let urls = PathManager.shared.getFilesURLs(){
+//            self.musics = MetadataResolver().getMetas(urls: urls);
+//            self.collection.reloadData();
+//            self.indicator.isHidden = true;
+//            self.collection.isHidden = false;
+//        }else{
+//            self.indicator.isHidden = true;
+//            self.lblNoHistory.isHidden = false;
+//
+//        }
 
     }
     

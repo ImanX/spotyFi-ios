@@ -20,9 +20,6 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
     }
     
     
-    
-    
-    
     func didWiat() {
         DispatchQueue.main.async {
             self.banner.show(title: "Connecting...");

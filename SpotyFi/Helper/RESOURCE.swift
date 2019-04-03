@@ -17,6 +17,7 @@ internal var PLAYER = PlayerProvider.shared;
 internal var SOCKET:Socketer!;
 public let SOCKET_URL = "http://46.101.30.103:8080/ws";
 public let DOWNLOAD_URL = "http://46.101.30.103:8080/";
+public let REST_URL = "http://46.101.30.103:8080/sp/";
 public let DOWNLOADED_DIR = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mp3Downloaded");
 
 
