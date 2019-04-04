@@ -8,34 +8,31 @@
 
 import UIKit
 
-class UIQueryTableViewCell: UITableViewCell, UITextFieldDelegate {
+class UIQueryTableViewCell: UITableViewCell, UISearchBarDelegate {
     
-    @IBOutlet weak var edtQuery: UITextField!
+    @IBOutlet weak var searchBar: UISearchBar!
+
     public var completionDidLoading:(()->Void)!;
     public var completionDidEnd:(()->Void)!
     
     override func awakeFromNib() {
         super.awakeFromNib();
-        self.edtQuery.delegate = self;
+        self.searchBar.delegate = self;
       
     }
     
-
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      
-        guard textField.returnKeyType == .go  else{
-            return false;
-        }
-        
-        let queryValue = textField.text;
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        guard textField.returnKeyType == .go  else{
+//            return false;
+//        }
+//
+        let queryValue = searchBar.text;
         completionDidLoading();
-    
+        
         if (queryValue!.isSpotifyURL()){
             let request = RequestMusic(url: queryValue!.description);
             SOCKET.send(string: request.toJSON().description);
-            return true;
+            return;
         }
         
         
@@ -49,12 +46,12 @@ class UIQueryTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
         
         
-       
-       
-        
-        return true;
         
     }
+
+    
+    
+ 
     
     
 }

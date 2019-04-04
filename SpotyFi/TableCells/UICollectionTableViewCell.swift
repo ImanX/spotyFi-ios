@@ -62,6 +62,8 @@ class UICollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
         self.collection.register(UINib(nibName: "UIHitCollectionCell", bundle: nil), forCellWithReuseIdentifier: "cell");
         self.collection.delegate = self;
         self.collection.dataSource = self;
+        self.collection.backgroundColor = .clear;
+        self.backgroundColor = .clear;
        // self.lblHeader.text = "Recently Downloaded";
 //
 //        if let urls = PathManager.shared.getFilesURLs(){

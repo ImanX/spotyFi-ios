@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-class RequestController<M:Model>{
+class RequestController<M:Any>{
     
     private var request:Request<M>!;
     

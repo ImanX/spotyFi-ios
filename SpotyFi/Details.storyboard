@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,17 +15,17 @@
             <objects>
                 <viewController storyboardIdentifier="UIArtistDetialtViewController" id="ygQ-BD-ktW" customClass="UIArtistDetialtViewController" customModule="SpotyFi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HCh-TS-N83">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMe-Qg-e6f">
-                                <rect key="frame" x="0.0" y="20" width="375" height="210"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="210"/>
                                 <subviews>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="JdI-1X-002" customClass="UIImageView">
                                         <rect key="frame" x="-38" y="0.0" width="451" height="210"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s08-yL-Ax2" customClass="UICircleImageView" customModule="SpotyFi" customModuleProvider="target">
-                                        <rect key="frame" x="127.5" y="20" width="120" height="120"/>
+                                        <rect key="frame" x="127.66666666666669" y="20" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="Jc7-9j-9XX"/>
                                             <constraint firstAttribute="height" constant="120" id="wLQ-K5-Xhz"/>
@@ -65,12 +65,20 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="tai-2E-sEO">
+                                <rect key="frame" x="0.0" y="262" width="375" height="550"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tai-2E-sEO" firstAttribute="leading" secondItem="jmk-cf-MUZ" secondAttribute="leading" id="7Ro-yM-Nbo"/>
                             <constraint firstItem="lMe-Qg-e6f" firstAttribute="leading" secondItem="jmk-cf-MUZ" secondAttribute="leading" id="8bN-bi-BRt"/>
                             <constraint firstItem="lMe-Qg-e6f" firstAttribute="top" secondItem="jmk-cf-MUZ" secondAttribute="top" id="ETv-nS-mV1"/>
                             <constraint firstItem="lMe-Qg-e6f" firstAttribute="trailing" secondItem="jmk-cf-MUZ" secondAttribute="trailing" id="KW4-0e-QCv"/>
+                            <constraint firstItem="tai-2E-sEO" firstAttribute="trailing" secondItem="jmk-cf-MUZ" secondAttribute="trailing" id="eVs-ZO-swq"/>
+                            <constraint firstAttribute="bottom" secondItem="tai-2E-sEO" secondAttribute="bottom" id="nMe-LD-8vK"/>
+                            <constraint firstItem="tai-2E-sEO" firstAttribute="top" secondItem="lMe-Qg-e6f" secondAttribute="bottom" constant="8" id="tJu-ge-MG1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jmk-cf-MUZ"/>
                     </view>
@@ -79,11 +87,12 @@
                         <outlet property="imgAvatar" destination="s08-yL-Ax2" id="S0b-Y9-MTU"/>
                         <outlet property="lblFolowers" destination="oWA-Gs-gOZ" id="zIE-m2-hvq"/>
                         <outlet property="lblName" destination="nuz-Rb-Kpe" id="jNT-1M-iHT"/>
+                        <outlet property="tableView" destination="tai-2E-sEO" id="5qN-WI-NfL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x93-dn-zkp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="142.57871064467767"/>
+            <point key="canvasLocation" x="-236" y="141.87192118226602"/>
         </scene>
     </scenes>
 </document>

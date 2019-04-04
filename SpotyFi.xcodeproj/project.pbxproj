@@ -38,6 +38,9 @@
 		7E8EEB6A224A777600C7B2CF /* SingleMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EEB69224A777600C7B2CF /* SingleMusicPlayer.swift */; };
 		7E8EEB6C224A793500C7B2CF /* MultipleMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EEB6B224A793500C7B2CF /* MultipleMusicPlayer.swift */; };
 		7E908A1A2255F39D002528DA /* UIArtistDetialtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E908A192255F39D002528DA /* UIArtistDetialtViewController.swift */; };
+		7E908A1C22560BDC002528DA /* AlbumRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E908A1B22560BDC002528DA /* AlbumRequest.swift */; };
+		7E908A1E22560D7F002528DA /* TopSongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E908A1D22560D7F002528DA /* TopSongRequest.swift */; };
+		7E908A20225629F9002528DA /* UIMusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E908A1F225629F9002528DA /* UIMusicTableViewCell.xib */; };
 		7EBCA3D6224A1D22005091E6 /* UIContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCA3D5224A1D22005091E6 /* UIContainerView.swift */; };
 		7EBCA3D9224A1F43005091E6 /* UIEmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCA3D8224A1F43005091E6 /* UIEmptyStateViewController.swift */; };
 		7EBCA3DB224A1FAE005091E6 /* UIDownloadedMusicsTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCA3DA224A1FAE005091E6 /* UIDownloadedMusicsTableViewContoller.swift */; };
@@ -95,6 +98,9 @@
 		7E8EEB69224A777600C7B2CF /* SingleMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMusicPlayer.swift; sourceTree = "<group>"; };
 		7E8EEB6B224A793500C7B2CF /* MultipleMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleMusicPlayer.swift; sourceTree = "<group>"; };
 		7E908A192255F39D002528DA /* UIArtistDetialtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIArtistDetialtViewController.swift; sourceTree = "<group>"; };
+		7E908A1B22560BDC002528DA /* AlbumRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRequest.swift; sourceTree = "<group>"; };
+		7E908A1D22560D7F002528DA /* TopSongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSongRequest.swift; sourceTree = "<group>"; };
+		7E908A1F225629F9002528DA /* UIMusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIMusicTableViewCell.xib; sourceTree = "<group>"; };
 		7EBCA3D5224A1D22005091E6 /* UIContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIContainerView.swift; sourceTree = "<group>"; };
 		7EBCA3D8224A1F43005091E6 /* UIEmptyStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEmptyStateViewController.swift; sourceTree = "<group>"; };
 		7EBCA3DA224A1FAE005091E6 /* UIDownloadedMusicsTableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDownloadedMusicsTableViewContoller.swift; sourceTree = "<group>"; };
@@ -280,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				7EBCA3DF224A2D29005091E6 /* UIMusicTableViewCell.swift */,
+				7E908A1F225629F9002528DA /* UIMusicTableViewCell.xib */,
 				7EFE11D3224E6F35006EAAA2 /* UIQueryTableViewCell.swift */,
 				7EFE11D4224E6F35006EAAA2 /* UIQueryTableViewCell.xib */,
 				7EFE11D7224E96C3006EAAA2 /* UICollectionTableViewCell.swift */,
@@ -304,6 +311,8 @@
 			children = (
 				7EFE11E7225360EB006EAAA2 /* Request.swift */,
 				7EFE11E92254C693006EAAA2 /* QueryRequest.swift */,
+				7E908A1B22560BDC002528DA /* AlbumRequest.swift */,
+				7E908A1D22560D7F002528DA /* TopSongRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -397,6 +406,7 @@
 				7EFE11E0224EA249006EAAA2 /* UIHitCollectionCell.xib in Resources */,
 				7E6F2CEE224794F000E58E72 /* UIPlayerControlKit.xib in Resources */,
 				7EFE11DA224E96C3006EAAA2 /* UICollectionTableViewCell.xib in Resources */,
+				7E908A20225629F9002528DA /* UIMusicTableViewCell.xib in Resources */,
 				7E23CB412255EC1500F83935 /* Details.storyboard in Resources */,
 				7EFE11D6224E6F35006EAAA2 /* UIQueryTableViewCell.xib in Resources */,
 				7E58ED5B22342625005BE379 /* Assets.xcassets in Resources */,
@@ -491,6 +501,7 @@
 				7E5DCFA122496C720020895E /* PathManager.swift in Sources */,
 				7EFE11EE22551C71006EAAA2 /* Picture.swift in Sources */,
 				7E58ED5322342624005BE379 /* ViewController.swift in Sources */,
+				7E908A1E22560D7F002528DA /* TopSongRequest.swift in Sources */,
 				7EFE11EA2254C693006EAAA2 /* QueryRequest.swift in Sources */,
 				7E88043F224667E900EA5630 /* Music.swift in Sources */,
 				7E6F2CF12247C3CA00E58E72 /* PlayerProvider.swift in Sources */,
@@ -509,6 +520,7 @@
 				7E58ED722234EF42005BE379 /* SocketerDelegate.swift in Sources */,
 				7EFE11F022551D08006EAAA2 /* Album.swift in Sources */,
 				7E58ED6922343069005BE379 /* UIBaseViewController.swift in Sources */,
+				7E908A1C22560BDC002528DA /* AlbumRequest.swift in Sources */,
 				7E5495CD223580DB00634042 /* Banner.swift in Sources */,
 				7EFE11E22253605B006EAAA2 /* UIQueryResultViewController.swift in Sources */,
 				7E58ED5922342624005BE379 /* SpotyFi.xcdatamodeld in Sources */,

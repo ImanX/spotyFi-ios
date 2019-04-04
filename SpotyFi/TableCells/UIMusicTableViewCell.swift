@@ -38,6 +38,7 @@ class UIMusicTableViewCell: UITableViewCell {
         let shareTap = UITapGestureRecognizer(target: self, action: #selector(didShareClick));
         self.containerView.addGestureRecognizer(tap);
         self.imgAction.addGestureRecognizer(shareTap);
+        self.backgroundColor = .clear;
     
     }
 

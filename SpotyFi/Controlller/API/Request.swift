@@ -8,7 +8,7 @@
 
 import Foundation
 import SwiftyJSON
-class Request<M:Model>{
+class Request<M:Any>{
     
     
     

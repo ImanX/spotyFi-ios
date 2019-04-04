@@ -31,7 +31,7 @@ class UIDownloadedMusicsTableViewContoller: UIBaseViewController , UITableViewDe
         
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell") as! UIMusicTableViewCell;
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UIMusicTableViewCell;
         cell.item = musics[indexPath.rowWithoutWhiteSpace];
         cell.backgroundColor = .clear;
         cell.completionDidSelect = {
@@ -50,6 +50,7 @@ class UIDownloadedMusicsTableViewContoller: UIBaseViewController , UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         tablView.backgroundColor = UIColor.clear
+        tablView.register(UINib(nibName: "UIMusicTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

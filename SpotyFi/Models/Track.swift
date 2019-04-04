@@ -14,16 +14,18 @@ class Track: Model {
         name = json["name"].string;
         explicit = json["explicit"].boolValue;
         album = Album(json: json["album"]);
-        
+        externalURL = json["external_urls"]["spotify"].string;
         for item in json["artists"].arrayValue{
             artists.append(Artistx(json: item));
         }
     }
     
+    
     public var artists:[Artistx] = [];
     public var explicit = false;
     public var name:String?;
     public var album:Album?;
+    public var externalURL:String?;
 }
 
 

@@ -116,15 +116,17 @@ extension UIBaseViewController{
     }
     
     func disappearLoading(){
-        self.view.subviews.compactMap {  $0 as? UIVisualEffectView }.forEach {
-            $0.removeFromSuperview()
+        self.view.subviews.compactMap {  $0 as? UIVisualEffectView }.forEach { i in
+            i.removeFromSuperview()
+            
         }
+        
     }
 }
 
 
 extension UIImageView{
-
+    
     
     func loadImage(url:URL , completion:((UIImage)->Void)? = nil) {
         Matisse.load(url).fetch { (req, image, err) in
@@ -149,7 +151,7 @@ extension UIImageView{
     }
     
     func makeBlur() {
-
+        
         self.subviews.forEach { (view) in
             if view is UIVisualEffectView {
                 view.removeFromSuperview();
