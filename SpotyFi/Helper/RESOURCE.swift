@@ -124,12 +124,15 @@ extension UIBaseViewController{
 
 
 extension UIImageView{
-    func loadImage(url:URL){
+
+    
+    func loadImage(url:URL , completion:((UIImage)->Void)? = nil) {
         Matisse.load(url).fetch { (req, image, err) in
             self.image = image;
-            //self.makeBlur();
+            if let comp = completion {
+                comp(image!);
+            }
         }
-        
     }
     
     func dropShadow() {
@@ -198,6 +201,16 @@ extension UIImageView{
     
 }
 
-extension UINavigationBar{
-    
+extension UIView{
+    func makeGradiant(top:UIColor , bottom:UIColor = UIColor.black){
+        let colorTop = top.cgColor
+        let colorBottom = bottom.cgColor;
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = self.bounds
+        
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

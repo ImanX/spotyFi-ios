@@ -23,10 +23,8 @@ class UIQueryResultViewController: UIBaseViewController {
 
     }
     
-   
-    
 
-    
+
 }
 
 
@@ -85,6 +83,13 @@ extension UIQueryResultViewController {
             cell.lblSong.text = item?.name;
             return cell;
         }
+        
+        cell.compeletionSelectAt = { item , index in
+            UIArtistDetialtViewController.start(artist: item as! Artistx);
+        }
+        
+        
+        
     }
     
     func fillTrack(cell:UICollectionTableViewCell){
@@ -99,6 +104,10 @@ extension UIQueryResultViewController {
             cell.lblSong.text =  item?.name;
             return cell;
         }
+        
+        cell.compeletionSelectAt = { item , index in
+            
+        }
     }
     func fillAlbum(cell:UICollectionTableViewCell){
         cell.lblHeader.text = "Album";
@@ -111,6 +120,10 @@ extension UIQueryResultViewController {
             cell.lblArtist.text = item?.artists.first?.name;
             cell.lblSong.text =  item?.name;
             return cell;
+        }
+        
+        cell.compeletionSelectAt = { item , index in
+            
         }
     }
 }

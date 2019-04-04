@@ -14,6 +14,7 @@ class UICollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
     
     public var items:[Any]!;
     public var compeletionItemCell:((_ item:Any , _ cell:UIHitCollectionViewCell) -> UIHitCollectionViewCell)!;
+    public var compeletionSelectAt:((Any , Int)->Void)?;
     @IBOutlet weak var lblHeader: UILabel!
     @IBOutlet weak var lblNoHistory: UILabel!
 
@@ -27,7 +28,21 @@ class UICollectionTableViewCell: UITableViewCell, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UIHitCollectionViewCell;
         let item = items[indexPath.row];
+        cell.contentView.tag = indexPath.row;
+        cell.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelect(sender:))))
         return compeletionItemCell(item , cell);
+    }
+    
+    
+    @objc func didSelect(sender:UITapGestureRecognizer){
+        if let selectAt = compeletionSelectAt{
+            let index = (sender.view?.tag)!;
+            selectAt(items[index], index);
+        }
+    }
+  
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
     
     func setIndicatorMode(isHidden:Bool)  {

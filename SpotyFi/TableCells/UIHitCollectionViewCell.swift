@@ -9,6 +9,8 @@
 import UIKit
 
 class UIHitCollectionViewCell: UICollectionViewCell {
+    
+    
     @IBOutlet weak var lblSong: UILabel!
     @IBOutlet weak var lblArtist: UILabel!
     @IBOutlet weak var imgArtwork: UIImageView!
@@ -16,5 +18,8 @@ class UIHitCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    
+    
 
 }

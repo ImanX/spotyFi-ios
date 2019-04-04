@@ -42,16 +42,16 @@ class ViewController: UIBaseViewController , UITableViewDataSource , UITableView
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell") as! UICollectionTableViewCell;
-        cell.items = PathManager.shared.getFilesURLs();
-        cell.items = MetadataResolver().getMetas(urls: PathManager.shared.getFilesURLs()!);
-        cell.setIndicatorMode(isHidden: true);
-        cell.compeletionItemCell = { (item , cellHit)  -> UIHitCollectionViewCell in
-            let music = item as? Music;
-            cellHit.imgArtwork.image = music?.metadata?.photo;
-            cellHit.lblSong.text = music?.metadata?.name;
-            cellHit.lblArtist.text = music?.metadata?.artists?.first?.name;
-            return cellHit;
-        }
+//        cell.items = PathManager.shared.getFilesURLs();
+//        cell.items = MetadataResolver().getMetas(urls: PathManager.shared.getFilesURLs()!);
+//        cell.setIndicatorMode(isHidden: true);
+//        cell.compeletionItemCell = { (item , cellHit)  -> UIHitCollectionViewCell in
+//            let music = item as? Music;
+//            cellHit.imgArtwork.image = music?.metadata?.photo;
+//            cellHit.lblSong.text = music?.metadata?.name;
+//            cellHit.lblArtist.text = music?.metadata?.artists?.first?.name;
+//            return cellHit;
+//        }
         return cell;
     }
     
