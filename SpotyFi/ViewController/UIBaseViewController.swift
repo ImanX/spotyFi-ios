@@ -15,9 +15,12 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
     
     private var banner = Banner();
     
+    
+    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent;
     }
+    
     
     
     func didWiat() {
@@ -65,5 +68,19 @@ class UIBaseViewController: UIViewController ,SocketerDelegate{
         }
     }
     
+    func performGradiant(color:UIColor,animate:Bool = true){
+        
+        self.view.makeGradiant(top: color);
+        if animate {
+            self.view.alpha = 0.0;
+            UIView.animate(withDuration: 0.6, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+                self.view.alpha = 1.0;
+            }, completion: { (bool) in
+                
+            })
+        }
+
+        
+    }
     
 }

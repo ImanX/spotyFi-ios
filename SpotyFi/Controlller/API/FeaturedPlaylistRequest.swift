@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 class FeaturedPlaylistRequest: Request<[Playlist]> {
     init() {
-        let url = "\(REST_URL)/featuredPlaylists";
-        super.init(url: URL(string: url)!, method: "GET");
+        let url = URL.encode(string: "\(REST_URL)/featuredPlaylists");
+        super.init(url: url, method: "GET");
         completionParser = { json -> [Playlist] in
             var list = [Playlist]();
             for item in json.arrayValue{

@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 class TopSongRequest: Request<[Track]> {
      init(artistID:String) {
-        let url = URL(string: "\(REST_URL)/artistTopTracks?id=\(artistID)");
-        super.init(url: url!, method: "GET")
+        let url = URL.encode(string: "\(REST_URL)/artistTopTracks?id=\(artistID)")
+        super.init(url: url, method: "GET")
         completionParser = { (json) -> [Track] in
             var albums = [Track]();
             for item in json.arrayValue{

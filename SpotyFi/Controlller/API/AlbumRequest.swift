@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 class AlbumRequest: Request<[Album]> {
     init(artistID:String){
-        let url = URL(string: "\(REST_URL)/artistAlbums?id=\(artistID)");
-        super.init(url: url!, method: "GET")
+        let url = URL.encode(string: "\(REST_URL)/artistAlbums?id=\(artistID)");
+        super.init(url: url, method: "GET")
         completionParser = { (json) -> [Album] in
             var albums = [Album]();
             for item in json.arrayValue{

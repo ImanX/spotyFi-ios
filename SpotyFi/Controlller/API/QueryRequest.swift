@@ -11,8 +11,8 @@ class QueryRequest: Request<Query> {
 
 
     init(query:String){
-        let url = URL(string: "\(REST_URL)/search?q=\(query)");
-        super.init(url: url!, method: "GET")
+        let url = URL.encode(string: "\(REST_URL)/search?q=\(query)");
+        super.init(url: url, method: "GET")
         completionParser = { (json) -> Query in
             return Query(json: json);
         }

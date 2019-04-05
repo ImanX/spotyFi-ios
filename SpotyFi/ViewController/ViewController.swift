@@ -21,6 +21,8 @@ class ViewController: UIBaseViewController{
     private let sectionTitles = ["Categories","Tops" , "Recently Download"];
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         self.tableView.register(UINib(nibName: "UICollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "CollectionCell");
@@ -29,6 +31,7 @@ class ViewController: UIBaseViewController{
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.searchBar.delegate = self;
+        self.performGradiant(color: .brown);
         
         
         
@@ -120,6 +123,7 @@ extension ViewController : UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let queryValue = searchBar.text;
         
+        closeSoftKeyboard();
         appearLoading();
         
         if (queryValue!.isSpotifyURL()){
@@ -191,9 +195,14 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func fillHitSongs(cell:UICollectionTableViewCell){
+        
+        guard let playlist = self.playlists else {
+            return;
+        }
+            
     
         cell.setIndicatorMode(isHidden: true);
-        cell.items = self.playlists;
+        cell.items = playlist;
         cell.collection.reloadData();
         cell.compeletionItemCell = { item , cell in
             let playlist = item as! Playlist;
@@ -202,16 +211,22 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
             }
             
             cell.lblSong.text = playlist.name;
-            cell.lblArtist.text = ("Tracks \(playlist.countOfTracks!)")
+            cell.lblArtist.text = ("\(playlist.countOfTracks!) Tracks")
             return cell;
         }
-    
+        
+        cell.compeletionSelectAt = { item , index in
+            UIPlaylistViewController.start(playlist: item as! Playlist)
+        }
     }
     
     func fillCategories(cell:UICollectionTableViewCell){
-       
+        guard let category = self.categories else {
+            return;
+        }
+        
         cell.setIndicatorMode(isHidden: true);
-        cell.items = self.categories;
+        cell.items = category;
         cell.collection.reloadData();
         cell.compeletionItemCell = { item , cell in
             let category = item as! Category;

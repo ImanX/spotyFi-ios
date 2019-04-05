@@ -27,7 +27,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ebd-VN-QXQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="m_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ebd-VN-QXQ">
                                 <rect key="frame" x="16" y="14" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="CWi-R6-EJv"/>
@@ -84,6 +84,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="m_placeholder" width="350" height="350"/>
         <image name="upload" width="75" height="75"/>
     </resources>
 </document>

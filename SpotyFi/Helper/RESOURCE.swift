@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import Matisse
+import Kingfisher
 import AVFoundation
 import XLActionController
 
@@ -17,7 +17,7 @@ internal var PLAYER = PlayerProvider.shared;
 internal var SOCKET:Socketer!;
 public let SOCKET_URL = "http://46.101.30.103:8080/ws";
 public let DOWNLOAD_URL = "http://46.101.30.103:8080/";
-public let REST_URL = "http://46.101.30.103:8080/sp/";
+public let REST_URL = "http://46.101.30.103:8080/sp";
 public let DOWNLOADED_DIR = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mp3Downloaded");
 
 
@@ -129,10 +129,16 @@ extension UIImageView{
     
     
     func loadImage(url:URL , completion:((UIImage)->Void)? = nil) {
-        Matisse.load(url).fetch { (req, image, err) in
-            self.image = image;
-            if let comp = completion {
-                comp(image!);
+        
+        self.kf.setImage(with: url){ result in
+            switch result {
+            case .success(let value):
+                if let completion = completion{
+                    completion(value.image);
+                }
+                
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -216,3 +222,19 @@ extension UIView{
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
+
+
+extension URL{
+    static func encode(string: String) -> URL {
+        let encodedString = string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!;
+        return URL(string: encodedString)!;
+    }
+}
+
+extension UITableView{
+    open override func awakeFromNib() {
+        super.awakeFromNib();
+        self.backgroundColor = .clear;
+    }
+}
+

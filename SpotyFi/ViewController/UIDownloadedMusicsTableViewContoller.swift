@@ -49,7 +49,6 @@ class UIDownloadedMusicsTableViewContoller: UIBaseViewController , UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tablView.backgroundColor = UIColor.clear
         tablView.register(UINib(nibName: "UIMusicTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
     

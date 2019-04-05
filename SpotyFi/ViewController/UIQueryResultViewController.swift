@@ -25,6 +25,8 @@ class UIQueryResultViewController: UIBaseViewController {
         tableView.delegate = self;
         tableView.register(UINib(nibName: "UICollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell");
         self.navigationItem.title = "Results of \(captionOfQuery!)";
+        self.performGradiant(color: .purple);
+
 
     }
     
@@ -145,7 +147,7 @@ extension UIQueryResultViewController{
         vc.query = query;
         vc.captionOfQuery = caption;
         if let navigationController = UIApplication.topViewController as? UINavigationController{
-            navigationController.pushViewController(vc, animated: true);
+            navigationController.pushViewController(vc, animated: false);
         }
         
     }

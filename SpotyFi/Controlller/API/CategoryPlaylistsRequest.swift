@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 class CategoryPlaylistsRequest: Request<[Playlist]> {
     init(id:String) {
-        let url = URL(string: "\(REST_URL)/categoryPlaylists?id=\(id)");
-        super.init(url: url!, method: "GET")
+        let url = URL.encode(string: "\(REST_URL)/categoryPlaylists?id=\(id)")
+        super.init(url: url, method: "GET")
         completionParser = { json -> [Playlist] in
             var playlists = [Playlist]();
             for item in json.arrayValue{

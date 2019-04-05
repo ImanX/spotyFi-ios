@@ -39,7 +39,6 @@
                                 </userDefinedRuntimeAttributes>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="I2N-Re-1Qg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9rC-tO-EpH"/>
                             <constraint firstItem="I2N-Re-1Qg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GS6-CH-gjg"/>

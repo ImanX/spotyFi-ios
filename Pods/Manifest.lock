@@ -3,8 +3,8 @@ PODS:
   - Digger (0.0.5)
   - ESTMusicIndicator (0.2.0)
   - FRadioPlayer (0.1.15)
+  - Kingfisher (5.2.0)
   - MarqueeLabel/Swift (3.2.0)
-  - Matisse (3.0.0)
   - NFDownloadButton (0.0.6)
   - NotificationBannerSwift (2.0.1):
     - MarqueeLabel/Swift (~> 3.2.0)
@@ -21,7 +21,7 @@ DEPENDENCIES:
   - Digger
   - ESTMusicIndicator
   - FRadioPlayer
-  - Matisse
+  - Kingfisher (~> 5.0)
   - NFDownloadButton (~> 0.0.6)
   - NotificationBannerSwift
   - Starscream (~> 3.0.2)
@@ -33,8 +33,8 @@ SPEC CHECKSUMS:
   Digger: c474bde76a91e0a36f12101c5dfe7e86774b15d3
   ESTMusicIndicator: 80a123b51a7de3caa44dc91829b9619185dad0f6
   FRadioPlayer: 0ad8b63756c3597af3c4a2672334c5dc22e026e4
+  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
-  Matisse: e36695f77daa3f6c8508ae5988bf7e7ef4c38d66
   NFDownloadButton: c35241034b1fb298c903e676be2c38dd53329b5c
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
@@ -42,6 +42,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XLActionController: d2ab12a967ae0fee0b4563b8d809c8fb13ebc636
 
-PODFILE CHECKSUM: e6659a7af7878ef3ab8f65651c84e73ca240de88
+PODFILE CHECKSUM: b8a2d8c87ca4b362f257f29b621c15a2edb282fb
 
 COCOAPODS: 1.4.0

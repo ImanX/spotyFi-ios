@@ -30,18 +30,8 @@ class UIArtistDetialtViewController: UIBaseViewController {
         self.tableView.register(UINib(nibName: "UIMusicTableViewCell", bundle: nil), forCellReuseIdentifier: "track_cell");
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
-        self.tableView.backgroundColor = .clear;
         
 
-
-        if let url = artist.pictures.first?.URL{
-            let url = URL(string: url)!;
-            imgAvatar.loadImage(url: url) { (image) in
-                self.view.makeGradiant(top: self.imgAvatar.getCenterOfPixelColor());
-            }
-         }
-        
-    
         
         let albumRequest = AlbumRequest(artistID: artist.id!);
         RequestController<[Album]>(request: albumRequest).apply(compeletionResult: { (albums) in
@@ -61,12 +51,17 @@ class UIArtistDetialtViewController: UIBaseViewController {
             
         }
         
-        
-
+        if let url = artist.pictures.first?.URL{
+            let url = URL(string: url)!;
+            imgAvatar.loadImage(url: url) { (image) in
+                self.performGradiant(color: self.imgAvatar.getCenterOfPixelColor());
+            }
+        }
         
         
         lblName.text = artist.name;
-        lblFolowers.text = "Folllowers \(artist.followers?.description ?? "0")"
+        lblFolowers.text = "\(artist.followers!) Folllowers"
+
     }
     
     
@@ -184,7 +179,7 @@ extension UIArtistDetialtViewController{
     let vc = UIStoryboard(name: "Details", bundle: nil).instantiateViewController(type: UIArtistDetialtViewController.self);
     vc.artist = artist;
     if let navigationVC = UIApplication.topViewController as? UINavigationController{
-        navigationVC.pushViewController(vc, animated: true);
+        navigationVC.pushViewController(vc, animated: false);
     }
     }
 }
